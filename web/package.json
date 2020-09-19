@@ -1,0 +1,66 @@
+{
+  "name": "gatsby-starter-dimension-v2",
+  "description": "Gatsby Starter - Dimension V2",
+  "version": "1.0.0",
+  "author": "Hunter Chang",
+  "dependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "gatsby": "^2.2.9",
+    "gatsby-image": "^2.2.8",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.0.24",
+    "gatsby-plugin-modal-routing": "^1.0.2",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.10",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.2.11",
+    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-remark-normalize-paths": "^1.0.0",
+    "gatsby-remark-responsive-iframe": "^2.2.16",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-transformer-remark": "^2.6.22",
+    "gatsby-transformer-sharp": "^2.2.6",
+    "install": "^0.13.0",
+    "node-sass": "^4.11.0",
+    "npm": "^6.11.1",
+    "react": "^16.8.5",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-countup": "^4.2.1",
+    "react-dom": "^16.8.5",
+    "react-helmet": "^5.2.0",
+    "react-iframe": "^1.8.0",
+    "react-reveal": "^1.2.2",
+    "react-router-modal": "^1.5.2",
+    "react-scroll-parallax": "^2.1.2",
+    "react-visibility-sensor": "^5.1.1",
+    "reactjs-popup": "^1.4.2",
+    "styled-components": "^4.3.2",
+    "styled-components-breakpoint": "^2.1.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop -o",
+    "develop": "yarn dev",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "yarn dev",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "forestry-preview": "gatsby develop -p 8080 -H 0.0.0.0"
+  },
+  "devDependencies": {
+    "bootstrap-scss": "^4.3.1",
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  }
+}
