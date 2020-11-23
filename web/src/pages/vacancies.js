@@ -254,7 +254,8 @@ const VacanciesPage = () => (
                 <div className="city-name">
                   <a
                     className="dark-perot city-1"
-                    target="_blank" rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href="https://www.greenpan.be/nl-be/vacatures"
                   >
                     Belgium office
@@ -262,7 +263,8 @@ const VacanciesPage = () => (
 
                   <a
                     className="dark-perot city-2"
-                    target="_blank" rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href="https://www.bk.nl/vacatures"
                   >
                     Netherland office
@@ -270,13 +272,23 @@ const VacanciesPage = () => (
 
                   <a
                     className="dark-perot city-4"
-                    target="_blank" rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href="https://www.greenpan.us/wewantyou"
                   >
                     Us <br />
                     office
                   </a>
 
+                  <a
+                    className="dark-perot city-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.greenpan.hk/vacancies"
+                  >
+                    UK <br />
+                    office
+                  </a>
                 </div>
               </div>
             </div>
