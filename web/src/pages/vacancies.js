@@ -281,12 +281,12 @@ const VacanciesPage = () => (
                   </a>
 
                   <a
-                    className="dark-perot city-4"
+                    className="dark-perot city-6"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.greenpan.hk/vacancies"
                   >
-                    UK <br />
+                    HK <br />
                     office
                   </a>
                 </div>
