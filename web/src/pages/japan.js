@@ -76,10 +76,6 @@ export default () => (
 
                       <ul className="contact-list">
                         <li>
-                          DIETER NAESSENS{' '}
-                          <span className="function">PRESIDENT</span>
-                        </li>
-                        <li>
                           MASAMARU TAKAO{' '}
                           <span className="function">MANAGING DIRECTOR</span>
                         </li>

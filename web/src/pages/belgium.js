@@ -75,10 +75,6 @@ export default () => (
 
                     <ul className="contact-list">
                       <li>
-                        DIETER NAESSENS{' '}
-                        <span className="function">CEO EMEA</span>
-                      </li>
-                      <li>
                         SOPHIE WETSELS{' '}
                         <span className="function">CEO LOYALTY</span>
                       </li>
@@ -90,10 +86,6 @@ export default () => (
                         <span className="function">
                           SALES MANAGER BELGIUM &amp; FRANCE
                         </span>
-                      </li>
-                      <li>
-                        WANNES FONTAINE{' '}
-                        <span className="function">SALES MANAGER EMEA</span>
                       </li>
                       <li>
                         SOFIE KNOCKAERT <br />
