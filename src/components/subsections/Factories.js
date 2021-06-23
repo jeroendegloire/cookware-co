@@ -19,7 +19,7 @@ const Factories = styled.section`
 `
 
 const Li = styled.li`
-  .city:before {
+  .city-fac:before {
     background-image: url(${props => props.back});
   }
 `
@@ -62,13 +62,13 @@ export default () => {
                               {world.regionName}
                             </h3>
                             <ul className="city-name">
-                              {world.regionItems.map(item => {
-                                ;<Li back={item.icon.asset.url}>
+                              {world.regionItems.map(item => (
+                                <Li back={item.icon.asset.url}>
                                   <Link
                                     to={item.reference.slug.current}
                                     asModal
                                   >
-                                    <button className="light-gray city-7">
+                                    <button className="light-gray city-fac">
                                       Visit <br />
                                       Factory
                                       <br />
@@ -76,7 +76,7 @@ export default () => {
                                     </button>
                                   </Link>
                                 </Li>
-                              })}
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -102,7 +102,7 @@ export const query = graphql`
           regionName
           regionItems {
             reference {
-              ... on SanityOffice {
+              ... on SanityFactory {
                 slug {
                   current
                 }
