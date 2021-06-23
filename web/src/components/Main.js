@@ -8,7 +8,7 @@ import History from '../components/History'
 import Contact from '../components/Contact'
 import Brands from '../components/Brands'
 
-function Main(frontpage) {
+function Main(data) {
   let close = (
     <div
       className="close"
@@ -18,16 +18,10 @@ function Main(frontpage) {
     ></div>
   )
 
-  console.log(frontpage)
-
   return (
     <main>
       <article>
-        <Hero
-          slogan={frontpage.slogan}
-          // bg={this.props.background_image}
-          // logo={this.props.logo}
-        />
+        <Hero data={data} />
         <Waw />
         <Kf />
         <History />

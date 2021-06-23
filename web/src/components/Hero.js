@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
-import { graphql, StaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-
-import logoSlogan from '../images/logo--slogan.svg'
 
 const HeroSection = styled.section`
   position: relative;
@@ -30,15 +27,12 @@ const HeroSection = styled.section`
   }
 
   .container {
-    padding: 150px 0px 130px 0px;
+    padding: 150px 0px 130px;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0px;
     z-index: 1;
     height: 700px;
-    font-family: 'Montserrat';
+    font-family: Montserrat;
     font-weight: 700;
 
     h1 {
@@ -66,19 +60,25 @@ const HeroSection = styled.section`
   }
 `
 
-const Hero = ({ slogan }) => {
-  console.log(slogan)
+const Hero = ({ data }) => {
+  const { hero } = data.data
+
+  console.log(hero)
 
   return (
     <HeroSection id="hero">
-      {/* <GatsbyImage image={bg.asset.gatsbyImageData} /> */}
+      <GatsbyImage
+        image={
+          hero.background_image.asset.localFile.childImageSharp.gatsbyImageData
+        }
+      />
 
       <div className="container">
         <div className="col-md-11 col-lg-8">
-          <h1 className="animate-pop-in">{slogan}</h1>
+          <h1 className="animate-pop-in">{hero.slogan}</h1>
           <img
             className="animate-pop-in"
-            src={logoSlogan}
+            src={hero.logo.asset.localFile.publicURL}
             alt="Slogan: House of innovation."
           />
         </div>

@@ -24,18 +24,14 @@ const theme = {
   },
 }
 
-const IndexPage = props => {
-  const { data } = props
-
-  console.log(data)
-
+const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
         <SEO title="Home" />
         <Header />
         <ParallaxProvider scrollAxis="vertical">
-          <Main data={data} />
+          <Main data={data.sanityFrontpage} />
         </ParallaxProvider>
         <Footer />
       </Layout>
@@ -51,6 +47,22 @@ export const query = graphql`
       id
       hero {
         slogan
+        background_image {
+          asset {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+        logo {
+          asset {
+            localFile {
+              publicURL
+            }
+          }
+        }
       }
     }
   }
