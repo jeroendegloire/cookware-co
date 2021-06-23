@@ -8,7 +8,7 @@ import History from '../components/History'
 import Contact from '../components/Contact'
 import Brands from '../components/Brands'
 
-function Main(data) {
+function Main() {
   let close = (
     <div
       className="close"
@@ -21,7 +21,7 @@ function Main(data) {
   return (
     <main>
       <article>
-        <Hero data={data} />
+        <Hero />
         <Waw />
         <Kf />
         <History />

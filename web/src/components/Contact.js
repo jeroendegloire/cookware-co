@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade'
 import { Parallax } from 'react-scroll-parallax'
 import Offices from '../components/subsections/Offices'
 import Factories from '../components/subsections/Factories'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import spoon from '../images/spoon.svg'
 
@@ -48,6 +49,10 @@ const Contact = styled.section`
       margin: 15px 0;
     }
 
+    a {
+      text-transform: uppercase;
+    }
+
     .button {
       background: #cdd476;
       text-align: center;
@@ -68,32 +73,52 @@ const Contact = styled.section`
   }
 `
 
-export default () => (
-  <Contact className="page-section waw-sec-wrep" id="contact">
-    <div className="waw-contact-us-bake">
-      <Fade>
-        <div className="row justify-content-center">
-          <div className="col-md-10 col-lg-9">
-            <div className="waw-contact-us-title">
-              <h2 className="center">Contact us</h2>
-            </div>
-            <div className="waw-contact-us-content-main">
-              <div className="center">
-                <p>Do you want to get in touch? Let’s talk!</p>
-                <a href="mailto:info@cookware-co.com" className="button">
-                  INFO@COOKWARE-CO.COM
-                </a>
+export default () => {
+  const {
+    sanityFrontpage: {
+      contactUs: { info, email, contectUsTitle },
+    },
+  } = useStaticQuery(query)
+
+  return (
+    <Contact className="page-section waw-sec-wrep" id="contact">
+      <div className="waw-contact-us-bake">
+        <Fade>
+          <div className="row justify-content-center">
+            <div className="col-md-10 col-lg-9">
+              <div className="waw-contact-us-title">
+                <h2 className="center">{contectUsTitle}</h2>
+              </div>
+              <div className="waw-contact-us-content-main">
+                <div className="center">
+                  <p>{info}</p>
+                  <a href={`mailto:${email}`} className="button">
+                    {email}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Fade>
-    </div>
+        </Fade>
+      </div>
 
-    <Parallax className="spoon" x={[-50, 0]} tagOuter="figure">
-      <img src={spoon} />
-    </Parallax>
-    <Offices />
-    <Factories />
-  </Contact>
-)
+      <Parallax className="spoon" x={[-50, 0]} tagOuter="figure">
+        <img src={spoon} />
+      </Parallax>
+      <Offices />
+      <Factories />
+    </Contact>
+  )
+}
+
+export const query = graphql`
+  query ContactQuery {
+    sanityFrontpage {
+      contactUs {
+        info
+        email
+        contectUsTitle
+      }
+    }
+  }
+`

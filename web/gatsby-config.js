@@ -86,6 +86,5 @@ module.exports = {
         dataset: `production`,
       },
     },
-    'gatsby-source-sanity-transform-images',
   ],
 }

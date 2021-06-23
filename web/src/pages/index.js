@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { graphql } from 'gatsby'
 
 import 'react-router-modal/css/react-router-modal.css'
 
@@ -31,7 +30,7 @@ const IndexPage = ({ data }) => {
         <SEO title="Home" />
         <Header />
         <ParallaxProvider scrollAxis="vertical">
-          <Main data={data.sanityFrontpage} />
+          <Main />
         </ParallaxProvider>
         <Footer />
       </Layout>
@@ -40,30 +39,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query IndexPageQuery {
-    sanityFrontpage {
-      id
-      hero {
-        slogan
-        background_image {
-          asset {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-        logo {
-          asset {
-            localFile {
-              publicURL
-            }
-          }
-        }
-      }
-    }
-  }
-`
