@@ -5,7 +5,10 @@ export default {
     fields: [
         {
             name: 'icon',
-            type: 'image'
+            type: 'image',
+            options: {
+                accept: 'image/svg+xml,.svg'
+            }
         },
         {
             name: 'prefix',
@@ -14,7 +17,7 @@ export default {
         },
         {
             name: 'value',
-            type: 'string',
+            type: 'number',
             title: 'Value'
         },
         {
@@ -26,7 +29,7 @@ export default {
             name: 'infoText',
             type: 'string',
             title: 'Info text'
-        }
+        },
     ],
     preview: {
         select: {

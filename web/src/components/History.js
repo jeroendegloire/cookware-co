@@ -124,7 +124,7 @@ const Waw = styled.section`
   }
   ul.timeline-content {
     padding-bottom: 4rem;
-    ${breakpoint('md')`
+    ${breakpoint('lg')`
       display: flex;
       padding-bottom: 0;`};
     position: relative;
@@ -137,11 +137,11 @@ const Waw = styled.section`
       right: calc(50% - 2px);
       height: 100%;
       background: #7c8c42;
-      ${breakpoint('md')`
+      ${breakpoint('lg')`
       top: 50%;
       height: 3px;
-      left: -25px;
-      right: -15px;
+      left: -50px;
+      right: -25px;
       `};
     }
     &:after {
@@ -154,7 +154,7 @@ const Waw = styled.section`
       transform: rotate(90deg) translate(50%);
       width: 29px;
       height: 33px;
-      ${breakpoint('md')`
+      ${breakpoint('lg')`
       right: -30px;
       top: 50%;
       transform: translateY(-45%);`};
@@ -162,9 +162,9 @@ const Waw = styled.section`
     li {
       position: relative;
       width: calc(60% - 14px);
-      ${breakpoint('md')`
-        width: 12.5%;
-        margin-left: -5%;
+      ${breakpoint('lg')`
+        left: -2.5%;
+        flex: 1;
       `};
       .tc-item {
         position: relative;
@@ -172,13 +172,13 @@ const Waw = styled.section`
     }
     li:nth-of-type(odd) {
       width: 100%;
-        ${breakpoint('md')`
+        ${breakpoint('lg')`
           background: url(${timelineOdd}) no-repeat center;
           background-size: 65px;
         `};
         
         &:before {
-          ${breakpoint('md')`
+          ${breakpoint('lg')`
           display: block;
           content: '';
           width: 1px;
@@ -203,7 +203,7 @@ const Waw = styled.section`
         
         .tc-item {
           padding-right: 60%;
-          ${breakpoint('md')`
+          ${breakpoint('lg')`
           padding-bottom: 250px;
           padding-right: 0;
           `};
@@ -214,13 +214,13 @@ const Waw = styled.section`
       background: url(${timelineEven}) left center no-repeat; 
       background-size: 65px;
       margin-left: calc(50% - 33px);
-      ${breakpoint('md')`
+      ${breakpoint('lg')`
       background: url(${timelineEven}) no-repeat center;
       background-size: 65px;
       margin-left: 0;
       `};
       &:after {
-        ${breakpoint('md')`
+        ${breakpoint('lg')`
         display: block;
         content: '';
         width: 1px;
@@ -233,10 +233,10 @@ const Waw = styled.section`
       .tc-item {
         text-align: right;
         padding-left: 100px;
-        ${breakpoint('md')`
+        ${breakpoint('lg')`
         margin-top: 360px;
         text-align: left;
-        padding-left: 0;
+        padding-left: 0;f
         `};
       }
     }
@@ -274,34 +274,6 @@ export default () => (
     <StaticQuery
       query={graphql`
         query HistoryQuery {
-          imageOne: file(relativePath: { eq: "greenpan-people.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 381, maxHeight: 172) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          imageTwo: file(relativePath: { eq: "cookware-coocking.jpg" }) {
-            childImageSharp {
-              fluid(maxHeight: 177, maxWidth: 190) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          imageThree: file(relativePath: { eq: "cookware-coocking-2.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 190, maxHeight: 176) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          imageFour: file(relativePath: { eq: "cookware-coocking-3.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 192, maxHeight: 176) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
           sanityFrontpage {
             history {
               historyTitle
@@ -320,10 +292,13 @@ export default () => (
               <Fade className="timeline-wrep">
                 <div className="timeline-bake">
                   <div className="row justify-content-center">
-                    <div className="2 col-lg-9">
-                      <h2 className="timeline-title">
-                        {data.sanityFrontpage.history.historyTitle}
-                      </h2>
+                    <div className="2 col-lg-10">
+                      <h2
+                        className="timeline-title"
+                        dangerouslySetInnerHTML={{
+                          __html: data.sanityFrontpage.history.historyTitle,
+                        }}
+                      ></h2>
                       <div className="timeline-content-wrep">
                         <div className="timeline-content-inner">
                           <ul className="timeline-content">
@@ -332,7 +307,11 @@ export default () => (
                                 <li>
                                   <div className="tc-item">
                                     <h5>{item.year}</h5>
-                                    <div>{item.info}</div>
+                                    <div
+                                      dangerouslySetInnerHTML={{
+                                        __html: item.info,
+                                      }}
+                                    ></div>
                                   </div>
                                 </li>
                               )

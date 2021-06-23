@@ -15,7 +15,7 @@ export default {
         },
         {
             name: 'firstParagraph',
-            type: 'string',
+            type: 'text',
             title: 'First paragraph'
         },
         {
@@ -35,7 +35,7 @@ export default {
         },
         {
             name: 'secondParagraph',
-            type: 'string',
+            type: 'text',
             title: 'Second paragraph'
         },
         {
