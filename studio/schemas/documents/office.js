@@ -1,7 +1,7 @@
 export default {
     name: 'office',
     type: 'document',
-    title: 'Office',
+    title: 'Offices',
     fields: [
         {
             name: 'officeTitle',

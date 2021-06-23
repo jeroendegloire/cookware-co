@@ -1,7 +1,7 @@
 export default {
     name: 'factory',
     type: 'document',
-    title: 'Factory',
+    title: 'Factories',
     fields: [
         {
             name: 'factoryTitle',
@@ -12,6 +12,42 @@ export default {
             name: 'factorySubtitle',
             type: 'string',
             title: 'Subtitle'
+        },
+        {
+            name: 'employeeInfoArray',
+            type: 'array',
+            title: 'Who to contact',
+            of: [{
+                type: 'employeeInfo'
+            }]
+        },
+        {
+            name: 'contactMail',
+            type: 'string',
+            title: 'Contact mail'
+        },
+        {
+            title: 'Location',
+            name: 'location',
+            type: 'geopoint'
+        },
+        {
+            name: 'logo',
+            type: 'image',
+            title: 'Logo'
+        },
+        {
+            name: 'companyInfo',
+            type: 'array',
+            title: 'Factory info',
+            of: [{
+                type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
+            }]
+        },
+        {
+            name: 'link',
+            type: 'string',
+            title: 'Website url'
         },
         {
             title: 'Path',

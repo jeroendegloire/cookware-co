@@ -9,6 +9,11 @@ export default {
             title: 'Title'
         },
         {
+            name: 'subtitle',
+            type: 'string',
+            title: 'Subtitle'
+        },
+        {
             name: 'firstParagraph',
             type: 'string',
             title: 'First paragraph'
@@ -21,17 +26,12 @@ export default {
         {
             name: 'first_tagline',
             type: 'string',
-            title: 'Firsts tagline'
+            title: 'First tagline'
         },
         {
             name: 'image2',
             type: 'image',
             title: 'First tagline image'
-        },
-        {
-            name: 'subtitle',
-            type: 'string',
-            title: 'Subtitle'
         },
         {
             name: 'secondParagraph',

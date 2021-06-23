@@ -1,7 +1,7 @@
 export default {
     name: 'brand',
     type: 'document',
-    title: 'Brand',
+    title: 'Brands',
     fields: [
         {
             name: 'brandName',

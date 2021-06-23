@@ -21,6 +21,7 @@ import whoAreWe from './objects/whoAreWe'
 import keyFigures from './objects/keyFigures'
 import history from './objects/history'
 import contactUs from './objects/contactUs'
+import factory from './documents/factory'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -43,6 +44,7 @@ export default createSchema({
     whoAreWe,
     history,
     keyFigures,
-    contactUs
+    contactUs,
+    factory
   ])
 })
