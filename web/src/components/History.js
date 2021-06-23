@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import { graphql, StaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 import { Parallax } from 'react-scroll-parallax'
 import Fade from 'react-reveal/Fade'
 
@@ -19,21 +18,16 @@ const Waw = styled.section`
     font-family: Montserrat;
     font-weight: 700;
   }
-
   h2 {
     position: relative;
-
     font-size: 64px;
-
     color: #676260;
   }
-
   h3 {
     font-size: 36px;
     line-height: 34px;
     color: #7c8c42;
   }
-
   .waw-title h2:after {
     position: absolute;
     content: '';
@@ -43,45 +37,35 @@ const Waw = styled.section`
     height: 3px;
     background: #676260;
   }
-
   .waw-inner {
     background: #d6d6cd;
     padding: 50px 0 150px;
     position: relative;
-
     position: relative;
   }
-
   .waw-content-wrep {
     padding: 40px 0px;
-
     .gatsby-image-wrapper {
       height: 100%;
     }
   }
-
   .waw-content-left {
     margin-bottom: 50px;
-
     ${breakpoint('lg')`
       padding-right: 20px;
     `}
-
     p {
       margin-bottom: 40px;
     }
   }
-
   .waw-content-right {
     ${breakpoint('lg')`
       padding-left: 20px;
     `}
-
     p {
       margin: 40px 0;
     }
   }
-
   .waw-content p {
     color: #676260;
     font-size: 14px;
@@ -90,7 +74,6 @@ const Waw = styled.section`
     line-height: 16px;
     letter-spacing: 2.3px;
   }
-
   .cookware-box {
     h3 {
       font-size: 22px;
@@ -98,7 +81,6 @@ const Waw = styled.section`
       color: #fff;
     }
   }
-
   .cm-before:before {
     position: absolute;
     content: ' ';
@@ -111,7 +93,6 @@ const Waw = styled.section`
     border-right-color: #7c8c42;
     border-right-width: 25px;
   }
-
   .cm-after::after {
     position: absolute;
     content: ' ';
@@ -124,7 +105,6 @@ const Waw = styled.section`
     border-left-color: #7c8c42;
     border-left-width: 25px;
   }
-
   .cw-box-content {
     display: flex;
     height: 100%;
@@ -135,7 +115,6 @@ const Waw = styled.section`
     position: relative;
     padding: 10px;
   }
-
   .timeline-title {
     font-size: 38px;
     text-align: center;
@@ -143,15 +122,12 @@ const Waw = styled.section`
     margin-top: 70px;
     margin-bottom: 100px;
   }
-
   ul.timeline-content {
     padding-bottom: 4rem;
     ${breakpoint('md')`
       display: flex;
-      padding-bottom: 0;`
-    };
+      padding-bottom: 0;`};
     position: relative;
-
     &:before {
       content: '';
       position: absolute;
@@ -168,7 +144,6 @@ const Waw = styled.section`
       right: -15px;
       `};
     }
-
     &:after {
       content: '';
       background: url(${timelineArrow}) no-repeat right;
@@ -184,7 +159,6 @@ const Waw = styled.section`
       top: 50%;
       transform: translateY(-45%);`};
     }
-
     li {
       position: relative;
       width: calc(60% - 14px);
@@ -192,12 +166,10 @@ const Waw = styled.section`
         width: 12.5%;
         margin-left: -5%;
       `};
-
       .tc-item {
         position: relative;
       }
     }
-
     li:nth-of-type(odd) {
       width: 100%;
         ${breakpoint('md')`
@@ -205,7 +177,6 @@ const Waw = styled.section`
           background-size: 65px;
         `};
         
-
         &:before {
           ${breakpoint('md')`
           display: block;
@@ -217,7 +188,6 @@ const Waw = styled.section`
           position: absolute;
           bottom: calc(50% + 20px);`};
         }
-
         &:after {
           content: '';
           position: absolute;
@@ -231,7 +201,6 @@ const Waw = styled.section`
           background-size: 65px;
         }
         
-
         .tc-item {
           padding-right: 60%;
           ${breakpoint('md')`
@@ -239,10 +208,8 @@ const Waw = styled.section`
           padding-right: 0;
           `};
         }
-
       }
     }
-
     li:nth-of-type(even) {
       background: url(${timelineEven}) left center no-repeat; 
       background-size: 65px;
@@ -252,7 +219,6 @@ const Waw = styled.section`
       background-size: 65px;
       margin-left: 0;
       `};
-
       &:after {
         ${breakpoint('md')`
         display: block;
@@ -264,26 +230,23 @@ const Waw = styled.section`
         position: absolute;
         top: calc(50% + 20px);`};
       }
-
       .tc-item {
         text-align: right;
         padding-left: 100px;
         ${breakpoint('md')`
-        margin-top: 320px;
+        margin-top: 360px;
         text-align: left;
         padding-left: 0;
         `};
       }
     }
   }
-
   .tc-item {
     h5 {
       font-family: 'Montserrat';
       font-size: 35px;
       color: #7c8c42;
     }
-
     > div {
       font-size: 13px;
       color: #676260;
@@ -339,6 +302,15 @@ export default () => (
               }
             }
           }
+          sanityFrontpage {
+            history {
+              historyTitle
+              historyArray {
+                year
+                info
+              }
+            }
+          }
         }
       `}
       render={data => (
@@ -349,92 +321,22 @@ export default () => (
                 <div className="timeline-bake">
                   <div className="row justify-content-center">
                     <div className="2 col-lg-9">
-                      <h2 className="timeline-title">HISTORY OF THE COMPANY</h2>
+                      <h2 className="timeline-title">
+                        {data.sanityFrontpage.history.historyTitle}
+                      </h2>
                       <div className="timeline-content-wrep">
                         <div className="timeline-content-inner">
                           <ul className="timeline-content">
-                            <li>
-                              <div className="tc-item">
-                                <h5>2005</h5>
-                                <div>
-                                  START-UP OF
-                                  <br />
-                                  ANOTECH
-                                  <br />
-                                  MANUFACTURING
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2007</h5>
-                                <div>
-                                  START OF
-                                  <br />
-                                  CERAMIC
-                                  <br />
-                                  NON-STICK
-                                  <br />
-                                  BRAND: GREENPAN
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2008</h5>
-                                <div>
-                                  AQUISITION
-                                  <br />
-                                  THERMOLON<sup>TM</sup>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2011</h5>
-                                <div>
-                                  START OF
-                                  <br /> CERAMIC
-                                  <br /> NON-STICK
-                                  <br /> BRANDS:
-                                  <br />
-                                  GREENCHEF
-                                  <br />
-                                  &amp; GREENLIFE
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2013</h5>
-                                <div>Loyalty department</div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2016</h5>
-                                <div>
-                                  START OF CERAMIC NON-STICK BRAND: BLUE DIAMOND
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2018</h5>
-                                <div>
-                                  AQUISITION DUTCH MARKET LEADER IN COOKWARE:
-                                  BK, KELTUM, GERO, VAN KEMPEN EN BEGEER
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="tc-item">
-                                <h5>2019</h5>
-                                <div>
-                                  aquisition Merten &amp; Storck, Kochstar
-                                </div>
-                              </div>
-                            </li>
+                            {data.sanityFrontpage.history.historyArray.map(
+                              item => (
+                                <li>
+                                  <div className="tc-item">
+                                    <h5>{item.year}</h5>
+                                    <div>{item.info}</div>
+                                  </div>
+                                </li>
+                              )
+                            )}
                           </ul>
                         </div>
                       </div>
