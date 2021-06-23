@@ -28,6 +28,21 @@ export default {
         title: 'Contact us',
         type: 'contactUs'
       },
+      {
+        name: 'ourOffices',
+        title: 'Offices',
+        type: 'ourOffices'
+      },
+      {
+        name: 'ourFactories',
+        title: 'Factories',
+        type: 'ourFactories'
+      },
+      {
+        name: 'ourBrands',
+        title: 'Brands',
+        type: 'ourBrands'
+      },
     ],
     preview: {
         prepare() {

@@ -14,6 +14,11 @@ export default {
             title: 'Subtitle'
         },
         {
+            name: 'countryFlag',
+            type: 'image',
+            title: 'Country flag'
+        },
+        {
             name: 'employeeInfoArray',
             type: 'array',
             title: 'Who to contact',

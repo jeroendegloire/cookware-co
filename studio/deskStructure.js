@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 
 const hiddenDocTypes = listItem =>
-  !['frontpage'].includes(
+  !['frontpage', 'siteSettings'].includes(
     listItem.getId()
   )
 
@@ -16,6 +16,15 @@ export default () =>
           S.document()
             .schemaType('frontpage')
             .documentId('frontpage')
+            .views([S.view.form()])
+        ),
+        S.documentListItem()
+        .title('Site settings')
+        .schemaType('siteSettings')
+        .child(
+          S.document()
+            .schemaType('siteSettings')
+            .documentId('sitesetttings')
             .views([S.view.form()])
         ),
         S.divider(),

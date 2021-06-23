@@ -14,6 +14,11 @@ export default {
             title: 'Subtitle'
         },
         {
+            name: 'countryFlag',
+            type: 'image',
+            title: 'Country flag'
+        },
+        {
             name: 'employeeInfoArray',
             type: 'array',
             title: 'Who to contact',
@@ -30,6 +35,14 @@ export default {
             title: 'Location',
             name: 'location',
             type: 'geopoint'
+        },
+        {
+            name: 'contactInfo',
+            type: 'array',
+            title: 'Contact info',
+            of: [{
+                type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
+            }]
         },
         {
             name: 'logo',
