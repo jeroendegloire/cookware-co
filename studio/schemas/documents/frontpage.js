@@ -1,7 +1,10 @@
+import { HiHome } from 'react-icons/hi'
+
 export default {
     name: 'frontpage',
     type: 'document',
     title: 'Frontpage',
+    icon: HiHome,
     fields: [
       {
         name: 'hero',

@@ -1,7 +1,10 @@
+import { GiFactory } from 'react-icons/gi'
+
 export default {
     name: 'factory',
     type: 'document',
     title: 'Factories',
+    icon: GiFactory,
     fields: [
         {
             name: 'factoryTitle',

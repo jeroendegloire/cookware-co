@@ -15,4 +15,10 @@ export default {
             to: [{type: 'brand'}]
         },
     ],
+    preview: {
+        select: {
+          title: 'reference.brandName',
+          media: 'image'
+        }
+      }
 }

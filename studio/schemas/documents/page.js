@@ -1,7 +1,10 @@
+import { HiDocumentAdd } from 'react-icons/hi'
+
 export default {
     name: 'page',
     type: 'document',
-    title: 'Page',
+    title: 'Pages',
+    icon: HiDocumentAdd,
     fields: [
         {
             name: 'title',
