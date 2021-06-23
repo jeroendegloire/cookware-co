@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import footerbg from '../images/footer-bg.jpg'
 import linkedin from '../images/linkedin.svg'
 
 const Footer = styled.footer`
   display: flex;
   align-items: flex-end;
   height: 380px;
-  background-image: url(${footerbg});
+  background-image: url(${props => props.back});
   background-position: center;
 
   .f-content {
@@ -37,15 +37,42 @@ const Footer = styled.footer`
 `
 
 // @todo: make year dynamic.
-export default () => (
-  <Footer id="footer">
-    <div className="f-content">
-      <p>
-        Do you have general questions or remarks on our products? Let us know:{' '}
-        <a href="mailto:info@cookware-co.com">info@cookware-co.com</a><br/>
-        Find us on:&nbsp;&nbsp;&nbsp; <a href="https://www.linkedin.com/company/thecookwarecompany" target="_blank" rel="noopener noreferrer"><img src={linkedin} className="linkedin" /></a><br/>
-        © {new Date().getFullYear()} Cookware Company All Rights Reserved.
-      </p>
-    </div>
-  </Footer>
-)
+export default () => {
+  const {
+    sanitySiteSettings: { logoFooter },
+  } = useStaticQuery(query)
+
+  return (
+    <Footer back={logoFooter.asset.url} id="footer">
+      <div className="f-content">
+        <p>
+          Do you have general questions or remarks on our products? Let us know:{' '}
+          <a href="mailto:info@cookware-co.com">info@cookware-co.com</a>
+          <br />
+          Find us on:&nbsp;&nbsp;&nbsp;{' '}
+          <a
+            href="https://www.linkedin.com/company/thecookwarecompany"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={linkedin} className="linkedin" />
+          </a>
+          <br />© {new Date().getFullYear()} Cookware Company All Rights
+          Reserved.
+        </p>
+      </div>
+    </Footer>
+  )
+}
+
+export const query = graphql`
+  query FooterQuery {
+    sanitySiteSettings {
+      logoFooter {
+        asset {
+          url
+        }
+      }
+    }
+  }
+`

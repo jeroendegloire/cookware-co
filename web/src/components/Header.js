@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import Navigation from '../components/Navigation'
 
@@ -22,7 +23,7 @@ const StickyTop = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 1.2rem;
-    background: #3E3B3A;
+    background: #3e3b3a;
 
     .navbar-toggler {
       padding: 0.25rem 0.75rem;
@@ -83,10 +84,6 @@ const StickyTop = styled.div`
         padding-left: 0;
         margin-bottom: 0;
         list-style: none;
-
-        &:first-child {
-          display: none;
-        }
       }
 
       li a {
@@ -107,12 +104,39 @@ const StickyTop = styled.div`
   }
 `
 
-const Header = props => (
-  <header>
-    <StickyTop>
-      <Navigation />
-    </StickyTop>
-  </header>
-)
+const Header = () => {
+  const {
+    sanitySiteSettings: {
+      sitename,
+      logoSite: { asset },
+      menu,
+    },
+  } = useStaticQuery(query)
+
+  return (
+    <header>
+      <StickyTop>
+        <Navigation sitename={sitename} logo={asset} menu={menu} />
+      </StickyTop>
+    </header>
+  )
+}
 
 export default Header
+
+export const query = graphql`
+  query HeaderQuery {
+    sanitySiteSettings {
+      sitename
+      logoSite {
+        asset {
+          url
+        }
+      }
+      menu {
+        url
+        title
+      }
+    }
+  }
+`

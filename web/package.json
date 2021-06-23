@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Jeroen Degloire",
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
@@ -23,7 +24,6 @@
     "gatsby-remark-responsive-iframe": "^4.4.1",
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-source-sanity": "^7.0.7",
-    "gatsby-source-sanity-transform-images": "^0.0.7",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.7.1",
     "install": "^0.13.0",
