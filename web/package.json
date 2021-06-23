@@ -23,6 +23,7 @@
     "gatsby-remark-responsive-iframe": "^4.4.1",
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-source-sanity": "^7.0.7",
+    "gatsby-source-sanity-transform-images": "^0.0.7",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.7.1",
     "install": "^0.13.0",

@@ -1,7 +1,10 @@
+import { HiHome } from 'react-icons/hi'
+
 export default {
     name: 'frontpage',
     type: 'document',
     title: 'Frontpage',
+    icon: HiHome,
     fields: [
       {
         name: 'hero',
@@ -27,6 +30,21 @@ export default {
         name: 'contactUs',
         title: 'Contact us',
         type: 'contactUs'
+      },
+      {
+        name: 'ourOffices',
+        title: 'Offices',
+        type: 'ourOffices'
+      },
+      {
+        name: 'ourFactories',
+        title: 'Factories',
+        type: 'ourFactories'
+      },
+      {
+        name: 'ourBrands',
+        title: 'Brands',
+        type: 'ourBrands'
       },
     ],
     preview: {

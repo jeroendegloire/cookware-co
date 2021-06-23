@@ -1,17 +1,17 @@
 export default {
-    name: 'ourOffices',
+    name: 'ourFactories',
     type: 'object',
-    title: 'Our offices',
+    title: 'Our factories',
     fields: [
         {
-            name: 'ourOfficesTitle',
+            name: 'ourFactoriesTitle',
             type: 'string',
-            title: 'Our offices title'
+            title: 'Our factories title'
         },
         {
-            name: 'officeItems',
+            name: 'factoriesItems',
             type: 'array',
-            title: 'Offices',
+            title: 'Factories',
             of: [{
                 type: 'region'
             }]

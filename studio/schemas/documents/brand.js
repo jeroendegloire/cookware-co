@@ -1,7 +1,10 @@
+import { HiColorSwatch } from 'react-icons/hi'
+
 export default {
     name: 'brand',
     type: 'document',
-    title: 'Brand',
+    title: 'Brands',
+    icon: HiColorSwatch,
     fields: [
         {
             name: 'brandName',

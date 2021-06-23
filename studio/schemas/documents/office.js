@@ -1,7 +1,10 @@
+import { HiOfficeBuilding } from 'react-icons/hi'
+
 export default {
     name: 'office',
     type: 'document',
-    title: 'Office',
+    title: 'Offices',
+    icon: HiOfficeBuilding,
     fields: [
         {
             name: 'officeTitle',
@@ -12,6 +15,11 @@ export default {
             name: 'officeSubtitle',
             type: 'string',
             title: 'Subtitle'
+        },
+        {
+            name: 'countryFlag',
+            type: 'image',
+            title: 'Country flag'
         },
         {
             name: 'employeeInfoArray',
