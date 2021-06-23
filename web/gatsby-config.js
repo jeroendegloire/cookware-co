@@ -21,7 +21,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,
+          placeholder: `blurred`,
           quality: 50,
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
@@ -86,5 +86,6 @@ module.exports = {
         dataset: `production`,
       },
     },
+    'gatsby-source-sanity-transform-images',
   ],
 }
