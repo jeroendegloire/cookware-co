@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
@@ -97,9 +97,13 @@ export default () => (
                     />
                     <p>
                       <br />
-                      11-16, Noksan sandan 165-Ro, 14beon-Gil, Songjeong-Dong, Gangseo-Gu, Busan, South Korea<br />
-                      Zip : 46752<br />
-                      TEL (82) 51 831 8863<br />
+                      11-16, Noksan sandan 165-Ro, 14beon-Gil, Songjeong-Dong,
+                      Gangseo-Gu, Busan, South Korea
+                      <br />
+                      Zip : 46752
+                      <br />
+                      TEL (82) 51 831 8863
+                      <br />
                       FAX (82) 51 467 2367
                     </p>
                   </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { ThemeProvider } from 'styled-components'
+import { graphql } from 'gatsby'
 
 import 'react-router-modal/css/react-router-modal.css'
 
@@ -12,6 +12,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Main from '../components/Main'
 import SEO from '../components/SEO'
+import { ThemeProvider } from 'styled-components'
 
 const theme = {
   breakpoints: {
@@ -23,30 +24,34 @@ const theme = {
   },
 }
 
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.setWrapperRef = this.setWrapperRef.bind(this)
-  }
+const IndexPage = props => {
+  const { data } = props
 
-  setWrapperRef(node) {
-    this.wrapperRef = node
-  }
+  console.log(data)
 
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <SEO title="Home" />
-          <Header />
-          <ParallaxProvider scrollAxis="vertical">
-            <Main/>
-          </ParallaxProvider>
-          <Footer />
-        </Layout>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <SEO title="Home" />
+        <Header />
+        <ParallaxProvider scrollAxis="vertical">
+          <Main data={data} />
+        </ParallaxProvider>
+        <Footer />
+      </Layout>
+    </ThemeProvider>
+  )
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexPageQuery {
+    sanityFrontpage {
+      id
+      hero {
+        slogan
+      }
+    }
+  }
+`

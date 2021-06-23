@@ -4,7 +4,7 @@ import breakpoint from 'styled-components-breakpoint'
 import { Parallax } from 'react-scroll-parallax'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Fade from 'react-reveal/Fade'
 
 import logo_greenpan from '../images/logo_greenpan.jpg'

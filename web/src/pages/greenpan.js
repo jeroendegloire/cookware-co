@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
@@ -96,11 +96,7 @@ export default () => (
               <img src={backIcon} className="back-icon" alt="" />
             </Link>
 
-            <Link
-              className="link-next"
-              to="/greenchef"
-              asModal
-            >
+            <Link className="link-next" to="/greenchef" asModal>
               Go to Greenchef →
             </Link>
           </div>

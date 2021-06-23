@@ -1,6 +1,6 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import { Parallax } from 'react-scroll-parallax'
 import styled from 'styled-components'
 

@@ -8,30 +8,34 @@ import History from '../components/History'
 import Contact from '../components/Contact'
 import Brands from '../components/Brands'
 
-class Main extends React.Component {
-  render() {
-    let close = (
-      <div
-        className="close"
-        onClick={() => {
-          this.props.onCloseArticle()
-        }}
-      ></div>
-    )
+function Main(frontpage) {
+  let close = (
+    <div
+      className="close"
+      onClick={() => {
+        this.props.onCloseArticle()
+      }}
+    ></div>
+  )
 
-    return (
-      <main>
-        <article>
-          <Hero />
-          <Waw />
-          <Kf />
-          <History />
-          <Contact />
-          <Brands />
-        </article>
-      </main>
-    )
-  }
+  console.log(frontpage)
+
+  return (
+    <main>
+      <article>
+        <Hero
+          slogan={frontpage.slogan}
+          // bg={this.props.background_image}
+          // logo={this.props.logo}
+        />
+        <Waw />
+        <Kf />
+        <History />
+        <Contact />
+        <Brands />
+      </article>
+    </main>
+  )
 }
 
 Main.propTypes = {

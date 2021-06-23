@@ -11,10 +11,16 @@ import frontpage from './documents/frontpage'
 // object types
 import keyFigure from './objects/keyFigure'
 import historyItem from './objects/historyItem'
-import officepage from './documents/officepage'
+import office from './documents/office'
+import brand from './documents/brand'
 import employeeInfo from './objects/employeeInfo'
 import officeInfo from './objects/officeInfo'
 import ourOffices from './objects/ourOffices'
+import homeScreen from './objects/homeScreen'
+import whoAreWe from './objects/whoAreWe'
+import keyFigures from './objects/keyFigures'
+import history from './objects/history'
+import contactUs from './objects/contactUs'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,8 +35,14 @@ export default createSchema({
     keyFigure,
     historyItem,
     ourOffices,
-    officepage,
+    office,
+    brand,
     officeInfo,
     employeeInfo,
+    homeScreen,
+    whoAreWe,
+    history,
+    keyFigures,
+    contactUs
   ])
 })

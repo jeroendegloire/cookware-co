@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
@@ -55,15 +55,15 @@ export default () => (
             </div>
             <div className="text-wrapper">
               <p>
-                Koninklijke Van Kempen &amp; Begeer is an iconic Dutch brand, known
-                for its beautiful, high-quality silver and silver plated
+                Koninklijke Van Kempen &amp; Begeer is an iconic Dutch brand,
+                known for its beautiful, high-quality silver and silver plated
                 tableware. The brand has a long-standing history, going back to
                 1789 when it was founded by J.M. Kempen. Over the years the
                 company grew into the largest and most innovative sterling
-                silverware producer in the Netherlands. Van Kempen &amp; Begeer has
-                been a pioneer from the very start, introducing new products and
-                new techniques. Their extraordinary handmade craftsmanship was
-                rewarded with the royal predicate in 1858. Up to today, the
+                silverware producer in the Netherlands. Van Kempen &amp; Begeer
+                has been a pioneer from the very start, introducing new products
+                and new techniques. Their extraordinary handmade craftsmanship
+                was rewarded with the royal predicate in 1858. Up to today, the
                 company remains a supplier of the Dutch Royal Family.
               </p>
             </div>

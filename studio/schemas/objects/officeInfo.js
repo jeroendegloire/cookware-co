@@ -3,22 +3,22 @@ export default {
     type: 'object',
     title: 'Office info',
     fields: [
-        //{
-        //    name: 'googleMapsIntegration',
-        //    type: 'googleMap',
-        //    title: 'google map'
-        //},
         {
             name: 'companyName',
             type: 'string',
             title: 'Company name'
         },
         {
-            name: 'companyInfoArray',
+            title: 'Location',
+            name: 'location',
+            type: 'geopoint'
+        },
+        {
+            name: 'companyInfo',
             type: 'array',
-            title: 'Company info array',
+            title: 'Company info',
             of: [{
-                type: 'string' // address, zipcode, country, VAT number, bank name, IBAN, BIC
+                type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
             }]
         }
     ],

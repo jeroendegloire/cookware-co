@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
@@ -19,7 +19,7 @@ export default () => (
               ...GatsbyImageSharpFluid_withWebp
             }
           }
-        },
+        }
         thumbnail1: file(relativePath: { eq: "popups/18.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1200, maxHeight: 1200) {
@@ -64,7 +64,12 @@ export default () => (
               </p>
             </div>
 
-            <a href="https://www.food-e.us/" className="link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.food-e.us/"
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>&#8250;&#8250;</span> VISIT WEBSITE
             </a>
 

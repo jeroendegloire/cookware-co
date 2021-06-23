@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby-plugin-modal-routing'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
@@ -19,7 +19,7 @@ export default () => (
               ...GatsbyImageSharpFluid_withWebp
             }
           }
-        },
+        }
         thumbnail1: file(relativePath: { eq: "popups/6.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1200, maxHeight: 1200) {
@@ -63,7 +63,7 @@ export default () => (
             </div>
 
             <a
-            className="link"
+              className="link"
               href="https://www.greenchef-cookware.com"
               target="_blank"
               rel="noreferrer noopener"
@@ -93,19 +93,11 @@ export default () => (
               <img src={backIcon} className="back-icon" alt="" />
             </Link>
 
-            <Link
-              className="link-previous"
-              to="/greenpan"
-              asModal
-            >
+            <Link className="link-previous" to="/greenpan" asModal>
               ← Go to Greenpan
             </Link>
 
-            <Link
-              className="link-next"
-              to="/greenlife"
-              asModal
-            >
+            <Link className="link-next" to="/greenlife" asModal>
               Go to Greenlife →
             </Link>
           </div>

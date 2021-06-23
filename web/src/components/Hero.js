@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import { graphql, StaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import logoSlogan from '../images/logo--slogan.svg'
 
-const Hero = styled.section`
+const HeroSection = styled.section`
   position: relative;
   height: 700px;
   z-index: 0;
@@ -66,40 +66,25 @@ const Hero = styled.section`
   }
 `
 
-export default () => (
-  <Hero id="Hero">
-    <StaticQuery
-      query={graphql`
-        query HeadingQuery {
-          file(relativePath: { eq: "hero.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 2000, maxHeight: 700) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      `}
-      render={data => <Img fluid={data.file.childImageSharp.fluid} />}
-    />
+const Hero = ({ slogan }) => {
+  console.log(slogan)
 
-    <div className="container">
-      <div className="col-md-11 col-lg-8">
-        <h1 className="animate-pop-in">
-          Driven
-          <br />
-          by innovation.
-          <br />
-          Empowered
-          <br />
-          by people.
-        </h1>
-        <img
-          className="animate-pop-in"
-          src={logoSlogan}
-          alt="Slogan: House of innovation."
-        />
+  return (
+    <HeroSection id="hero">
+      {/* <GatsbyImage image={bg.asset.gatsbyImageData} /> */}
+
+      <div className="container">
+        <div className="col-md-11 col-lg-8">
+          <h1 className="animate-pop-in">{slogan}</h1>
+          <img
+            className="animate-pop-in"
+            src={logoSlogan}
+            alt="Slogan: House of innovation."
+          />
+        </div>
       </div>
-    </div>
-  </Hero>
-)
+    </HeroSection>
+  )
+}
+
+export default Hero
