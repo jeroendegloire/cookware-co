@@ -7,7 +7,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import backIcon from '../images/back-icon.svg'
 import PortableText from '../utils/portableText'
 
-export default ({ data, pageContext }) => {
+const brandTemplate = ({ data, pageContext }) => {
   const {
     brandName,
     logo,
@@ -88,6 +88,8 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default brandTemplate
 
 export const query = graphql`
   query($slug: String!) {

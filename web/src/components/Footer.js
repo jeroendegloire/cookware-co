@@ -37,7 +37,7 @@ const Footer = styled.footer`
 `
 
 // @todo: make year dynamic.
-export default () => {
+const FooterCom = () => {
   const {
     sanitySiteSettings: { logoFooter },
   } = useStaticQuery(query)
@@ -55,7 +55,7 @@ export default () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={linkedin} className="linkedin" />
+            <img alt="linkedln" src={linkedin} className="linkedin" />
           </a>
           <br />© {new Date().getFullYear()} Cookware Company All Rights
           Reserved.
@@ -64,6 +64,8 @@ export default () => {
     </Footer>
   )
 }
+
+export default FooterCom
 
 export const query = graphql`
   query FooterQuery {

@@ -45,7 +45,7 @@ const Office = styled.div`
   }
 `
 
-export default ({ data }) => {
+const factoryTemplate = ({ data }) => {
   const {
     factoryTitle,
     factorySubtitle,
@@ -106,7 +106,7 @@ export default ({ data }) => {
                         width="100%"
                         height="250"
                         frameborder="0"
-                        style="border:0;"
+                        style={{ border: '0' }}
                         allowfullscreen=""
                       />
 
@@ -180,3 +180,5 @@ export const query = graphql`
     }
   }
 `
+
+export default factoryTemplate

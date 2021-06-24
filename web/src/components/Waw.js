@@ -130,7 +130,7 @@ const Waw = styled.section`
   }
 `
 
-export default () => {
+const WawCom = () => {
   const {
     sanityFrontpage: {
       whoAreWe: {
@@ -244,6 +244,8 @@ export default () => {
     </Waw>
   )
 }
+
+export default WawCom
 
 export const query = graphql`
   query WhoWeAreQuery {

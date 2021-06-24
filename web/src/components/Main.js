@@ -9,14 +9,14 @@ import Contact from '../components/Contact'
 import Brands from '../components/Brands'
 
 function Main() {
-  let close = (
-    <div
-      className="close"
-      onClick={() => {
-        this.props.onCloseArticle()
-      }}
-    ></div>
-  )
+  // let close = (
+  //   <div
+  //     className="close"
+  //     onClick={() => {
+  //       this.props.onCloseArticle()
+  //     }}
+  //   ></div>
+  // )
 
   return (
     <main>

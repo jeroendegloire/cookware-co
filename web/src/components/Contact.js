@@ -73,7 +73,7 @@ const Contact = styled.section`
   }
 `
 
-export default () => {
+const ContactCom = () => {
   const {
     sanityFrontpage: {
       contactUs: { info, email, contectUsTitle },
@@ -107,13 +107,15 @@ export default () => {
       </div>
 
       <Parallax className="spoon" x={[-50, 0]} tagOuter="figure">
-        <img src={spoon} />
+        <img alt="spoon" src={spoon} />
       </Parallax>
       <Offices />
       <Factories />
     </Contact>
   )
 }
+
+export default ContactCom
 
 export const query = graphql`
   query ContactQuery {
