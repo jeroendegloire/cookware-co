@@ -31,6 +31,7 @@ import cta from './objects/cta'
 import brandItem from './objects/brandItem'
 import page from './documents/page'
 import ctaLink from './objects/ctaLink'
+import ctaArray from './objects/ctaArray'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -63,6 +64,7 @@ export default createSchema({
     cta,
     brandItem,
     page,
-    ctaLink
+    ctaLink,
+    ctaArray
   ])
 })

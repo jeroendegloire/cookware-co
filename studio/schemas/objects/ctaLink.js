@@ -12,9 +12,9 @@ export default {
             }
         },
         {
-            name: 'countryName',
+            name: 'text',
             type: 'string',
-            title: 'Country name'
+            title: 'Text'
         },
         {
             name: 'link',
@@ -22,4 +22,10 @@ export default {
             title: 'Link',
         },
     ],
+    preview: {
+        select: {
+          title: 'text',
+          media: 'icon'
+        }
+      }
 }

@@ -26,7 +26,10 @@ export default {
                 },
                 {
                     type: 'ctaLink',
-                  }
+                },
+                {
+                    type: 'ctaArray',
+                }
               ]
         },
         {
