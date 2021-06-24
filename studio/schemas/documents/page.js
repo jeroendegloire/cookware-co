@@ -20,9 +20,16 @@ export default {
             name: 'content',
             type: 'array',
             title: 'Content',
-            of: [{
-                type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
-            }]
+            of: [
+                {
+                  type: 'block',
+                },
+              ]
+        },
+        {
+            name: 'ctaArray',
+            type: 'ctaArray',
+            title: 'CTA Buttons'
         },
         {
             title: 'Slug',

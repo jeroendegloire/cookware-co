@@ -21,7 +21,11 @@ export default () =>
           S.document()
             .schemaType('frontpage')
             .documentId('frontpage')
+<<<<<<< HEAD
             .views([S.view.form(), S.view.component(SocialPreview()).title('Social'), S.view
+=======
+            .views([S.view.form(), S.view
+>>>>>>> 9efa001a732d25e6cc9a256d7a5ee4a9139a0138
             .component(Iframe)
             .options({
               url: (doc) => resolveProductionUrl(doc),
