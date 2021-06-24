@@ -21,7 +21,7 @@ export default () =>
           S.document()
             .schemaType('frontpage')
             .documentId('frontpage')
-            .views([S.view.form(), S.view.component(SocialPreview()).title('Social'), S.view
+            .views([S.view.form(), S.view
             .component(Iframe)
             .options({
               url: (doc) => resolveProductionUrl(doc),
