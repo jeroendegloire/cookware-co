@@ -40,7 +40,7 @@ const Office = styled.div`
   }
 `
 
-export default ({ data }) => {
+const officeTemplate = ({ data }) => {
   const {
     officeTitle,
     officeSubtitle,
@@ -105,7 +105,7 @@ export default ({ data }) => {
                           width="100%"
                           height="195"
                           frameborder="0"
-                          style="border:0;"
+                          style={{ border: '0' }}
                           allowfullscreen=""
                         />
                         <h5>{item.companyName}</h5>
@@ -121,7 +121,7 @@ export default ({ data }) => {
                             width="100%"
                             height="195"
                             frameborder="0"
-                            style="border:0;"
+                            style={{ border: '0' }}
                             allowfullscreen=""
                           />
                           <h5>{item.companyName}</h5>
@@ -173,3 +173,5 @@ export const query = graphql`
     }
   }
 `
+
+export default officeTemplate

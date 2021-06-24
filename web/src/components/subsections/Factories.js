@@ -24,7 +24,7 @@ const Li = styled.li`
   }
 `
 
-export default () => {
+const FactoriesCom = () => {
   const {
     sanityFrontpage: {
       ourFactories: { ourFactoriesTitle, factoriesItems },
@@ -34,7 +34,7 @@ export default () => {
   return (
     <Factories className="waw-factories-bake">
       <Parallax className="fork-knife" x={[50, 10]} tagOuter="figure">
-        <img src={forkknife} />
+        <img alt="cook-ware" src={forkknife} />
       </Parallax>
       <Fade>
         <div>
@@ -92,6 +92,8 @@ export default () => {
     </Factories>
   )
 }
+
+export default FactoriesCom
 
 export const query = graphql`
   query FactorySectionQuery {

@@ -9,15 +9,6 @@ import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
 import logoSlogan from '../images/logo--slogan.svg'
 import backIcon from '../images/back-icon.svg'
-import flagBelgium from '../images/flag--belgium.svg'
-import flagChina from '../images/flag--china.svg'
-import flagGermany from '../images/flag--germany.svg'
-import flagHongKong from '../images/flag--hong-kong.svg'
-import flagJapan from '../images/flag--japan.svg'
-import flagNetherlands from '../images/flag--netherlands.svg'
-import flagSouthKorea from '../images/flag--south-korea.svg'
-import flagUk from '../images/flag--uk.svg'
-import flagUs from '../images/flag--us.svg'
 
 import Layout from '../components/layout'
 import PortableText from '../utils/portableText'
@@ -163,7 +154,7 @@ const ItemWrap = styled.a`
   }
 `
 
-export default ({ data }) => {
+const pageTemplate = ({ data }) => {
   const { title, image, _rawContent, ctaArray } = data.sanityPage
 
   return (
@@ -238,3 +229,5 @@ export const query = graphql`
     }
   }
 `
+
+export default pageTemplate
