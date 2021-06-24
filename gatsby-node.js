@@ -5,6 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const tempateOffice = path.resolve('./src/templates/office.js')
   const templateFactory = path.resolve('./src/templates/factory.js')
   const templateBrand = path.resolve('./src/templates/brand.js')
+  const templatePages = path.resolve('./src/templates/pages.js')
 
   const office = graphql(`
     {
@@ -109,5 +110,34 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([office, brand, factory])
+  const pages = graphql(`
+    {
+      pages: allSanityPage {
+        nodes {
+          slug {
+            current
+          }
+          _id
+          title
+        }
+      }
+    }
+  `).then(result => {
+    result.data.pages.nodes.forEach(page => {
+      console.info(`Creating page for: "${page.title}"...`)
+
+      const slug = page.slug.current
+
+      actions.createPage({
+        path: slug,
+        component: templatePages,
+        context: {
+          id: page._id,
+          slug,
+        },
+      })
+    })
+  })
+
+  return Promise.all([office, brand, factory, pages])
 }
