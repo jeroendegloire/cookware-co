@@ -74,7 +74,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        allPageHeaders: ['Access-Control-Allow-Origin: *'], // option to add more headers. `Link` headers are transformed by the below criteria
+        headers: {
+          '/*': ['Access-Control-Allow-Origin: *'],
+        },
       },
     },
     {
