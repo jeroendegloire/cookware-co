@@ -20,7 +20,7 @@ import flagUk from '../images/flag--uk.svg'
 import flagUs from '../images/flag--us.svg'
 
 import Layout from '../components/layout'
-import PortableText from '@sanity/block-content-to-react'
+import PortableText from '../utils/portableText'
 
 const PagesWrapper = styled.div`
   background: #d6d6cd;
@@ -186,7 +186,7 @@ const PagesWrapper = styled.div`
 
 export default ({ data }) => {
   // , image
-  const { title, content, text } = data.sanityPage
+  const { title, content } = data.sanityPage
 
   return (
     <Layout>
@@ -203,8 +203,7 @@ export default ({ data }) => {
         <div className="container page-vacancies">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-9 ">
-              <PortableText blocks={text} />
-              {console.log(text)}
+              <PortableText content={content._rawChildren} />
 
               <div className="city-name-wrep">
                 <div className="city-name-inner">
@@ -271,9 +270,6 @@ export const query = graphql`
   query($slug: String!) {
     sanityPage(slug: { current: { eq: $slug } }) {
       title
-      text {
-        _rawChildren(resolveReferences: { maxDepth: 10 })
-      }
       content {
         _rawChildren(resolveReferences: { maxDepth: 10 })
       }
