@@ -264,10 +264,10 @@ const Waw = styled.section`
   }
 `
 
-export default () => (
+const HistoryCom = () => (
   <Waw className="page-section waw-wrep" id="waw">
     <Parallax className="pot-2" x={[-80, -20]} y={[80, 100]} tagOuter="figure">
-      <img src={pot2} />
+      <img alt="pot2" src={pot2} />
     </Parallax>
 
     <StaticQuery
@@ -337,7 +337,9 @@ export default () => (
       )}
     />
     <Parallax className="fork" x={[80, -30]} y={[50, 10]} tagOuter="figure">
-      <img src={fork} />
+      <img alt="fork" src={fork} />
     </Parallax>
   </Waw>
 )
+
+export default HistoryCom

@@ -23,7 +23,7 @@ const Li = styled.li`
   }
 `
 
-export default () => {
+const OfficesComponents = () => {
   const {
     sanityFrontpage: {
       ourOffices: { ourOfficesTitle, officeItems },
@@ -86,6 +86,8 @@ export default () => {
     </Offices>
   )
 }
+
+export default OfficesComponents
 
 export const query = graphql`
   query OfficeSectionQuery {
