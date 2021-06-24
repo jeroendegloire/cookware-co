@@ -256,8 +256,7 @@ const Waw = styled.section`
       text-transform: uppercase;
       hyphens: manual;
       max-width: 100%;
-      ${breakpoint('md')`
-      max-width: 120%;
+      ${breakpoint('lg')`
       background: #d6d6cd;
       `};
       padding-bottom: 10%;
@@ -274,6 +273,15 @@ export default () => (
     <StaticQuery
       query={graphql`
         query HistoryQuery {
+          sanityFrontpage {
+            history {
+              historyTitle
+              historyArray {
+                year
+                info
+              }
+            }
+          }
           sanityFrontpage {
             history {
               historyTitle

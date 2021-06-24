@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+
 import Layout from '../components/layout'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
@@ -27,7 +29,10 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="Home" />
+        <SEO
+          title="Home"
+          description={data.sanitySiteSettings.metaDescription}
+        />
         <Header />
         <ParallaxProvider scrollAxis="vertical">
           <Main />
@@ -39,3 +44,11 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query HomePageQuery {
+    sanitySiteSettings {
+      metaDescription
+    }
+  }
+`

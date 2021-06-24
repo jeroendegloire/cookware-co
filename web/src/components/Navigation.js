@@ -27,13 +27,21 @@ class Navigation extends React.Component {
           <img src={this.props.logo.url} alt={this.props.sitename} />
         </AnchorLink>
         <ul className={classDropdownMenu} id="navbarSupportedContent">
-          {this.props.menu.map(item => (
-            <li className="nav-item">
-              <AnchorLink offset="63" href={item.url}>
-                {item.title}
-              </AnchorLink>
-            </li>
-          ))}
+          {this.props.menu.map(item =>
+            item.url.charAt(0) == '#' ? (
+              <li className="nav-item">
+                <AnchorLink offset="63" href={item.url}>
+                  {item.title}
+                </AnchorLink>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <Link to={item.url} asModal>
+                  {item.title}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
         <button
