@@ -74,7 +74,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        headers: ['Access-Control-Allow-Origin: *', 'X-Frame-Options: allow'], // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [
+          'Access-Control-Allow-Origin: *',
+          'X-Frame-Options: allow',
+        ], // option to add more headers. `Link` headers are transformed by the below criteria
       },
     },
     {
