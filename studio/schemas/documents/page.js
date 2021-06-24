@@ -24,13 +24,12 @@ export default {
                 {
                   type: 'block',
                 },
-                {
-                    type: 'ctaLink',
-                },
-                {
-                    type: 'ctaArray',
-                }
               ]
+        },
+        {
+            name: 'ctaArray',
+            type: 'ctaArray',
+            title: 'CTA Buttons'
         },
         {
             title: 'Slug',
