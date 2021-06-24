@@ -1,6 +1,5 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { Link } from 'gatsby-plugin-modal-routing-3'
 
 import toggle from '../images/menu.svg'
 

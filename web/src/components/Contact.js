@@ -91,7 +91,11 @@ export default () => {
               </div>
               <div className="waw-contact-us-content-main">
                 <div className="center">
-                  <p>{info}</p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: info,
+                    }}
+                  ></p>
                   <a href={`mailto:${email}`} className="button">
                     {email}
                   </a>

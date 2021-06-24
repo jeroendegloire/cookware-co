@@ -32,7 +32,15 @@ export default {
         {
             name: 'contactMail',
             type: 'string',
-            title: 'Contact mail'
+            title: 'Contact mail',
+            validation: (Rule) =>
+                Rule.regex(
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    {
+                        name: "email", // Error message is "Does not match email-pattern"
+                        invert: false, // Boolean to allow any value that does NOT match pattern
+                    }
+                ),
         },
         {
             title: 'Location',

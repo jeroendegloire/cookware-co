@@ -6,7 +6,10 @@ export default {
         {
             name: 'icon',
             type: 'image',
-            title: 'Country icon'
+            title: 'Country icon',
+            options: {
+                accept: 'image/svg+xml,.svg'
+            }
         },
         {
             name: 'countryName',
