@@ -110,9 +110,7 @@ export default ({ data }) => {
                         />
                         <h5>{item.companyName}</h5>
                         <p className="mb20">
-                          <PortableText
-                            content={item.companyInfo._rawChildren}
-                          />
+                          <PortableText content={item._rawCompanyInfo} />
                         </p>
                       </div>
                     ) : (
@@ -128,9 +126,7 @@ export default ({ data }) => {
                           />
                           <h5>{item.companyName}</h5>
                           <p className="mb20">
-                            <PortableText
-                              content={item.companyInfo._rawChildren}
-                            />
+                            <PortableText content={item._rawCompanyInfo} />
                           </p>
                         </div>
                       </div>
@@ -168,9 +164,7 @@ export const query = graphql`
       }
       officeInfoArray {
         companyName
-        companyInfo {
-          _rawChildren(resolveReferences: { maxDepth: 10 })
-        }
+        _rawCompanyInfo(resolveReferences: { maxDepth: 10 })
       }
       employeeInfoArray {
         employeeName
