@@ -156,13 +156,21 @@ export default () => {
             <div className="row justify-content-center">
               <div className="col-lg-9">
                 <div className="waw-title">
-                  <h2>{title}</h2>
+                  <h2
+                    dangerouslySetInnerHTML={{
+                      __html: title,
+                    }}
+                  ></h2>
                 </div>
                 <div className="row waw-content-wrep">
                   <div className="col-lg-6 waw-content-left">
                     <div className="waw-content-inner">
                       <div className="waw-content">
-                        <p>{firstParagraph}</p>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: firstParagraph,
+                          }}
+                        ></p>
                         <GatsbyImage image={image1.asset.gatsbyImageData} />
                         <div className="cookware-box">
                           <div className="row no-gutters">
@@ -173,7 +181,11 @@ export default () => {
                             </div>
                             <div className="col--6 col-sm-6 col-6">
                               <div className="cw-box-content cm-before">
-                                <h3>{first_tagline}</h3>
+                                <h3
+                                  dangerouslySetInnerHTML={{
+                                    __html: first_tagline,
+                                  }}
+                                ></h3>
                               </div>
                             </div>
                           </div>
@@ -184,14 +196,22 @@ export default () => {
                   <div className="col-lg-6 waw-content-right">
                     <div className="waw-content">
                       <div className="waw-content-inner">
-                        <h3>{subtitle}</h3>
+                        <h3
+                          dangerouslySetInnerHTML={{
+                            __html: subtitle,
+                          }}
+                        ></h3>
                         <div className="mt30 mb20"></div>
                         <p className="mt40">{secondParagraph}</p>
                         <div className="cookware-box">
                           <div className="row no-gutters">
                             <div className="col-md-6 col-sm-6 col-6">
                               <div className="cw-box-content cm-after">
-                                <h3>{second_tagline}</h3>
+                                <h3
+                                  dangerouslySetInnerHTML={{
+                                    __html: second_tagline,
+                                  }}
+                                ></h3>
                               </div>
                             </div>
                             <div className="col-md-6 col-sm-6 col-6">
@@ -237,22 +257,22 @@ export const query = graphql`
         firstParagraph
         image1 {
           asset {
-            gatsbyImageData(placeholder: BLURRED, width: 381, height: 172)
+            gatsbyImageData(placeholder: BLURRED, width: 700, height: 315)
           }
         }
         image2 {
           asset {
-            gatsbyImageData(placeholder: BLURRED, width: 177, height: 190)
+            gatsbyImageData(placeholder: BLURRED, width: 350, height: 320)
           }
         }
         image3 {
           asset {
-            gatsbyImageData(placeholder: BLURRED, width: 190, height: 176)
+            gatsbyImageData(placeholder: BLURRED, width: 350, height: 320)
           }
         }
         image4 {
           asset {
-            gatsbyImageData(placeholder: BLURRED, width: 192, height: 176)
+            gatsbyImageData(placeholder: BLURRED, width: 350, height: 320)
           }
         }
       }

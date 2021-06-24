@@ -12,6 +12,11 @@ export default {
             title: 'Title'
         },
         {
+            name: 'image',
+            type: 'image',
+            title: 'Hero image'
+        },
+        {
             name: 'content',
             type: 'array',
             title: 'Content',

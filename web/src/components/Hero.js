@@ -72,7 +72,12 @@ const Hero = () => {
 
       <div className="container">
         <div className="col-md-11 col-lg-8">
-          <h1 className="animate-pop-in">{hero.slogan}</h1>
+          <h1
+            className="animate-pop-in"
+            dangerouslySetInnerHTML={{
+              __html: hero.slogan,
+            }}
+          ></h1>
           <img
             className="animate-pop-in"
             src={hero.logo.asset.url}
@@ -94,7 +99,12 @@ export const query = graphql`
         slogan
         background_image {
           asset {
-            gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+            gatsbyImageData(
+              fit: FILLMAX
+              placeholder: BLURRED
+              width: 2000
+              height: 700
+            )
           }
         }
         logo {

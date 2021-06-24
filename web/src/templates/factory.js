@@ -51,10 +51,10 @@ export default ({ data }) => {
     factorySubtitle,
     logo,
     employeeInfoArray,
-    contactInfo,
-    companyInfo,
     contactMail,
     link,
+    _rawCompanyInfo,
+    _rawContactInfo,
   } = data.sanityFactory
 
   return (
@@ -111,7 +111,7 @@ export default ({ data }) => {
                       />
 
                       <p>
-                        <PortableText content={contactInfo._rawChildren} />
+                        <PortableText content={_rawContactInfo} />
                       </p>
 
                       <div className="mt1rem"></div>
@@ -123,7 +123,7 @@ export default ({ data }) => {
                         alt="Anotech"
                       />
                       <p>
-                        <PortableText content={companyInfo._rawChildren} />
+                        <PortableText content={_rawCompanyInfo} />
                       </p>
 
                       <a
@@ -174,12 +174,8 @@ export const query = graphql`
         imployeeFunction
       }
       contactMail
-      contactInfo {
-        _rawChildren(resolveReferences: { maxDepth: 10 })
-      }
-      companyInfo {
-        _rawChildren(resolveReferences: { maxDepth: 10 })
-      }
+      _rawCompanyInfo(resolveReferences: { maxDepth: 10 })
+      _rawContactInfo(resolveReferences: { maxDepth: 10 })
       link
     }
   }

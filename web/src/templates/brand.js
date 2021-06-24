@@ -12,7 +12,7 @@ export default ({ data, pageContext }) => {
     brandName,
     logo,
     sidebar_image,
-    text,
+    _rawText,
     link,
     imagesArray,
   } = data.sanityBrand
@@ -29,7 +29,7 @@ export default ({ data, pageContext }) => {
           </div>
           <div className="text-wrapper">
             <p>
-              <PortableText content={text._rawChildren} />
+              <PortableText content={_rawText} />
             </p>
           </div>
 
@@ -99,9 +99,7 @@ export const query = graphql`
         }
       }
       link
-      text {
-        _rawChildren(resolveReferences: { maxDepth: 10 })
-      }
+      _rawText(resolveReferences: { maxDepth: 10 })
       sidebar_image {
         asset {
           gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
