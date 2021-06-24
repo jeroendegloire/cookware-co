@@ -84,7 +84,11 @@ export default ({ data }) => {
                       <ul className="contact-list">
                         {employeeInfoArray.map(item => (
                           <li>
-                            {item.employeeName}
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: item.employeeName,
+                              }}
+                            ></span>
                             <span className="function">
                               {item.imployeeFunction}
                             </span>
@@ -100,13 +104,14 @@ export default ({ data }) => {
                   {officeInfoArray.map(item =>
                     item.length === 1 ? (
                       <div className="col-md-8 office-adderess">
-                        <Iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.0457963047115!2d3.652422215753267!3d51.05224217956287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c371efab35a105%3A0x98b1c48f802897c7!2sAntoon%20Catriestraat%2012%2C%209031%20Gent!5e0!3m2!1sen!2sbe!4v1568618880104!5m2!1sen!2sbe"
-                          width="100%"
-                          height="195"
-                          frameborder="0"
-                          style="border:0;"
-                          allowfullscreen=""
+                        <img
+                          src={
+                            'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                            { ...item.location.lat } +
+                            ', ' +
+                            { ...item.location.long } +
+                            '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                          }
                         />
                         <h5>{item.companyName}</h5>
                         <p className="mb20">
@@ -116,13 +121,14 @@ export default ({ data }) => {
                     ) : (
                       <div className="col-md-4">
                         <div className="office-adderess">
-                          <Iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2455.528402592662!2d4.298503651640245!3d52.015470879622356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b41059cafd47%3A0x517df0d502e6fa26!2sKlopperman%2016%2C%202292%20JD%20Wateringen%2C%20Nederland!5e0!3m2!1snl!2sbe!4v1591600070657!5m2!1snl!2sbe"
-                            width="100%"
-                            height="195"
-                            frameborder="0"
-                            style="border:0;"
-                            allowfullscreen=""
+                          <img
+                            src={
+                              'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                              { ...item.location.lat } +
+                              ', ' +
+                              { ...item.location.long } +
+                              '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                            }
                           />
                           <h5>{item.companyName}</h5>
                           <p className="mb20">
@@ -164,6 +170,10 @@ export const query = graphql`
       }
       officeInfoArray {
         companyName
+        location {
+          lat
+          lng
+        }
         _rawCompanyInfo(resolveReferences: { maxDepth: 10 })
       }
       employeeInfoArray {
