@@ -75,7 +75,10 @@ module.exports = {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
         headers: {
-          '/*': ['Access-Control-Allow-Origin: *'],
+          '/*': [
+            'Access-Control-Allow-Origin: *',
+            "Content-Security-Policy: frame-ancestors 'self' https://preview-cookwareco.gtsb.io/",
+          ],
         },
       },
     },
