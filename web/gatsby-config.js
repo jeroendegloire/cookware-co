@@ -77,7 +77,7 @@ module.exports = {
         headers: {
           '/*': [
             'Access-Control-Allow-Origin: *',
-            "Content-Security-Policy: frame-ancestors 'self' https://preview-cookwareco.gtsb.io/",
+            'Content-Security-Policy: frame-ancestors  https://preview-cookwareco.gtsb.io',
           ],
         },
       },
