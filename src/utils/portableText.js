@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
 
 const PortableText = ({ content }) => {
-  console.log(content)
-
   const serializers = {
     types: {},
   }
