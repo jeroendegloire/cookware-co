@@ -12,7 +12,6 @@ import pot from '../images/pot.svg'
 const Kf_wrapper = styled.section`
   position: relative;
   padding: 60px 0px 200px;
-
   sup {
     font-size: 21px;
   }
@@ -102,7 +101,11 @@ export default () => {
         <div className="container">
           <div className="kf-title-bake">
             <div className="kf-title">
-              <h2>{keyFiguresTitle}</h2>
+              <h2
+                dangerouslySetInnerHTML={{
+                  __html: keyFiguresTitle,
+                }}
+              ></h2>
             </div>
             <div className="row justify-content-center">
               <div className="col-lg-9">
@@ -121,16 +124,28 @@ export default () => {
                             delayedCall
                           >
                             <h3>
-                              {item.prefix}
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: item.prefix,
+                                }}
+                              ></span>
                               <CountUp
                                 duration={3}
-                                end={state.didViewCountUp ? 200 : 0}
+                                end={state.didViewCountUp ? item.value : 0}
                               />
-                              {item.suffix}
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: item.suffix,
+                                }}
+                              ></span>
                             </h3>
                           </VisibilitySensor>
 
-                          <span>{item.infoText}</span>
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: item.infoText,
+                            }}
+                          ></span>
                         </div>
                       </div>
                     </div>

@@ -132,33 +132,6 @@ const PagesWrapper = styled.div`
     left: calc(47% - 25px);
     top: calc(23.5% - 30px);
   }
-  .city-1:before {
-    background-image: url(${flagBelgium});
-  }
-  .city-2:before {
-    background-image: url(${flagNetherlands});
-  }
-  .city-3:before {
-    background-image: url(${flagUk});
-  }
-  .city-4:before {
-    background-image: url(${flagUs});
-  }
-  .city-5:before {
-    background-image: url(${flagJapan});
-  }
-  .city-6:before {
-    background-image: url(${flagHongKong});
-  }
-  .city-7:before {
-    background-image: url(${flagChina});
-  }
-  .city-8:before {
-    background-image: url(${flagSouthKorea});
-  }
-  .city-9:before {
-    background-image: url(${flagGermany});
-  }
 
   .light-gray {
     background: #b9b8ab;
@@ -184,67 +157,42 @@ const PagesWrapper = styled.div`
   }
 `
 
+const ItemWrap = styled.a`
+  :before {
+    background-image: url(${props => props.back});
+  }
+`
+
 export default ({ data }) => {
-  // , image
-  const { title, content } = data.sanityPage
+  const { title, image, _rawContent, ctaArray } = data.sanityPage
 
   return (
     <Layout>
       <PagesWrapper>
         <div className="hero">
-          {/* <GatsbyImage image={image.asset.gatsbyImageData} /> */}
+          <GatsbyImage image={image.asset.gatsbyImageData} />
 
-          <img
-            className="logo"
-            src={logoSlogan}
-            alt="Slogan: House of innovation."
-          />
+          <img className="logo" src={logoSlogan} alt={title} />
         </div>
         <div className="container page-vacancies">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-9 ">
-              <PortableText content={content._rawChildren} />
+              <PortableText content={_rawContent} />
 
               <div className="city-name-wrep">
                 <div className="city-name-inner">
                   <div className="city-name">
-                    <a
-                      className="dark-perot city-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.greenpan.be/nl-be/vacatures"
-                    >
-                      Belgium office
-                    </a>
-
-                    <a
-                      className="dark-perot city-2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.bk.nl/vacatures"
-                    >
-                      Netherland office
-                    </a>
-
-                    <a
-                      className="dark-perot city-4"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.greenpan.us/wewantyou"
-                    >
-                      Us <br />
-                      office
-                    </a>
-
-                    <a
-                      className="dark-perot city-6"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.greenpan.hk/vacancies"
-                    >
-                      HK <br />
-                      office
-                    </a>
+                    {ctaArray.links.map(item => (
+                      <ItemWrap
+                        back={item.icon.asset.url}
+                        className="dark-perot item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={item.link}
+                      >
+                        {item.text}
+                      </ItemWrap>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -270,14 +218,23 @@ export const query = graphql`
   query($slug: String!) {
     sanityPage(slug: { current: { eq: $slug } }) {
       title
-      content {
-        _rawChildren(resolveReferences: { maxDepth: 10 })
+      ctaArray {
+        links {
+          text
+          link
+          icon {
+            asset {
+              url
+            }
+          }
+        }
       }
+      image {
+        asset {
+          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+        }
+      }
+      _rawContent(resolveReferences: { maxDepth: 10 })
     }
   }
 `
-// image {
-//     asset {
-//       gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
-//     }
-//   }

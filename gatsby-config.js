@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'The Cookware company',
@@ -82,8 +86,11 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `gacfcd5w`,
-        dataset: `production`,
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_READ_TOKEN,
+        overlayDrafts: process.env.SANITY_OVERLAY_DRAFTS,
+        watchMode: process.env.SANITY_WATCH_MODE,
       },
     },
   ],
