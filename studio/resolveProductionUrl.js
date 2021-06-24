@@ -1,3 +1,3 @@
 export default function resolveProductionUrl(document) {
-    return `https://cookware-co.com/`
+    return `https://preview-cookwareco.gtsb.io`
   }
