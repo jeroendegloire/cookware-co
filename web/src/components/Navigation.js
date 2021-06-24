@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Link } from 'gatsby-plugin-modal-routing-3'
@@ -29,7 +30,7 @@ class Navigation extends React.Component {
         </AnchorLink>
         <ul className={classDropdownMenu} id="navbarSupportedContent">
           {this.props.menu.map(item =>
-            item.url.charAt(0) == '#' ? (
+            item.url.charAt(0) === '#' ? (
               <li className="nav-item">
                 <AnchorLink offset="63" href={item.url}>
                   {item.title}
@@ -54,9 +55,9 @@ class Navigation extends React.Component {
           data-target="#navbarNav"
           data-toggle="collapse"
           type="button"
-          role="button"
+          role="toggle-nav"
         >
-          <img src={toggle} alt />
+          <img src={toggle} alt="toggle" />
         </button>
       </nav>
     )

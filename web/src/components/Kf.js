@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CountUp from 'react-countup'
@@ -72,7 +73,7 @@ const Kf_wrapper = styled.section`
   }
 `
 
-export default () => {
+const KFCom = () => {
   const [state, setState] = useState({ didViewCountUp: false })
 
   const onVisibilityChange = isVisible => {
@@ -90,11 +91,11 @@ export default () => {
   return (
     <Kf_wrapper className="page-section" id="kf">
       <Parallax className="pan" x={[-80, -20]} y={[0, 60]} tagOuter="figure">
-        <img src={pan} />
+        <img alt="" src={pan} />
       </Parallax>
 
       <Parallax className="pot" x={[120, 20]} y={[0, 60]} tagOuter="figure">
-        <img src={pot} />
+        <img alt="" src={pot} />
       </Parallax>
 
       <Fade>
@@ -159,6 +160,8 @@ export default () => {
     </Kf_wrapper>
   )
 }
+
+export default KFCom
 
 export const query = graphql`
   query KFQuery {

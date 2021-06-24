@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import Iframe from 'react-iframe'
 
 import PortableText from '../utils/portableText'
 import backIcon from '../images/back-icon.svg'
@@ -13,16 +12,13 @@ const Office = styled.div`
   .temp:before {
     background-image: url(${props => props.back});
   }
-
   .back-icon {
     width: 50px;
     cursor: pointer;
   }
-
   .temp-header-bake {
     position: relative;
   }
-
   .temp-header-bake:after {
     content: '';
     background: #7c8c42;
@@ -40,7 +36,7 @@ const Office = styled.div`
   }
 `
 
-export default ({ data }) => {
+const officeTemplate = ({ data }) => {
   const {
     officeTitle,
     officeSubtitle,
@@ -112,6 +108,7 @@ export default ({ data }) => {
                             { ...item.location.long } +
                             '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                           }
+                          alt={item.companyName}
                         />
                         <h5>{item.companyName}</h5>
                         <p className="mb20">
@@ -129,6 +126,7 @@ export default ({ data }) => {
                               item.location.lng +
                               '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                             }
+                            alt={item.companyName}
                           />
                           <h5>{item.companyName}</h5>
                           <p className="mb20">
@@ -156,6 +154,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default officeTemplate
 
 export const query = graphql`
   query($slug: String!) {

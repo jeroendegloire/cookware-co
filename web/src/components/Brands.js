@@ -91,7 +91,7 @@ const Brands = styled.section`
   }
 `
 
-export default () => {
+const BrandsCom = () => {
   const {
     sanityFrontpage: {
       ourBrands: { ourBrandsTitle, brandsItems },
@@ -101,11 +101,11 @@ export default () => {
   return (
     <Brands className="page-section our-brands-wrep" id="brands">
       <Parallax className="wok" x={[-40, 10]} tagOuter="figure">
-        <img src={wok} />
+        <img alt="wok" src={wok} />
       </Parallax>
 
       <Parallax className="wok-2" x={[80, 50]} tagOuter="figure">
-        <img src={wok2} />
+        <img alt="wok2" src={wok2} />
       </Parallax>
 
       <div className="our-brands-inner">
@@ -140,6 +140,8 @@ export default () => {
     </Brands>
   )
 }
+
+export default BrandsCom
 
 export const query = graphql`
   query BrandSectionQuery {
