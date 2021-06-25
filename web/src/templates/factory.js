@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-modal-routing-3'
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import Iframe from 'react-iframe'
 
 import China from '../images/cb-icon-7.png'
 import backIcon from '../images/back-icon.svg'
@@ -55,6 +54,7 @@ const factoryTemplate = ({ data }) => {
     link,
     _rawCompanyInfo,
     _rawContactInfo,
+    location,
   } = data.sanityFactory
 
   return (
@@ -101,20 +101,9 @@ const factoryTemplate = ({ data }) => {
                         ))}
                       </ul>
 
-                      <Iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7081223891414!2d113.09610131495923!3d22.552603985193123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34022482cb41dad7%3A0xf1cfd277ea095f58!2s28%20Jin&#39;ou%20Rd%2C%20Jianghai%20Qu%2C%20Jiangmen%20Shi%2C%20Guangdong%20Sheng%2C%20China%2C%20529020!5e0!3m2!1sen!2sbe!4v1568619611456!5m2!1sen!2sbe"
-                        width="100%"
-                        height="250"
-                        frameborder="0"
-                        style={{ border: '0' }}
-                        allowfullscreen=""
-                      />
-
-                      <p>
-                        <PortableText content={_rawContactInfo} />
-                      </p>
-
-                      <div className="mt1rem"></div>
+                      <a href={`mailto:${contactMail}`} className="button">
+                        <i className="icon-mail"></i>CONTACT US
+                      </a>
                     </div>
                     <div className="col-md-7">
                       <img
@@ -135,9 +124,26 @@ const factoryTemplate = ({ data }) => {
                         <span>&#8250;&#8250;</span> MORE INFO
                       </a>
 
-                      <a href={`mailto:${contactMail}`} className="button">
-                        <i className="icon-mail"></i>CONTACT US
-                      </a>
+                      <div className="row">
+                        <div className="col-lg-6">
+                          <img
+                            className={'mb-3'}
+                            alt={'Google Map'}
+                            src={
+                              'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                              location.lat +
+                              ', ' +
+                              location.lng +
+                              '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                            }
+                          />
+                        </div>
+                        <div className="col-lg-6">
+                          <p>
+                            <PortableText content={_rawContactInfo} />
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -168,6 +174,10 @@ export const query = graphql`
         asset {
           url
         }
+      }
+      location {
+        lat
+        lng
       }
       employeeInfoArray {
         employeeName

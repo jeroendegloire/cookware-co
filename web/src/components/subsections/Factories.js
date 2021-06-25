@@ -57,10 +57,11 @@ const FactoriesCom = () => {
                       <div className="col-md-6 col-lg-4 col-sm-6 col-12">
                         <div className="w-c-box-main">
                           <div className="w-c-box">
-                            <h3>
-                              <br />
-                              {world.regionName}
-                            </h3>
+                            <h3
+                              dangerouslySetInnerHTML={{
+                                __html: world.regionName,
+                              }}
+                            ></h3>
                             <ul className="city-name">
                               {world.regionItems.map(item => (
                                 <Li back={item.icon.asset.url}>

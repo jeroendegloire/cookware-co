@@ -103,12 +103,12 @@ const officeTemplate = ({ data }) => {
                         <img
                           src={
                             'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
-                            { ...item.location.lat } +
+                            item.location.lat +
                             ', ' +
-                            { ...item.location.long } +
+                            item.location.lng +
                             '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                           }
-                          alt={item.companyName}
+                          alt={'Google map'}
                         />
                         <h5>{item.companyName}</h5>
                         <p className="mb20">
@@ -126,7 +126,7 @@ const officeTemplate = ({ data }) => {
                               item.location.lng +
                               '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                             }
-                            alt={item.companyName}
+                            alt={'Google map'}
                           />
                           <h5>{item.companyName}</h5>
                           <p className="mb20">
