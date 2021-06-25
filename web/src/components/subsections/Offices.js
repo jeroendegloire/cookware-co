@@ -46,14 +46,22 @@ const OfficesComponents = () => {
                           alt="Icon General management"
                           className="waw-sec-icon"
                         />
-                        <h2>{ourOfficesTitle}</h2>
+                        <h2
+                          dangerouslySetInnerHTML={{
+                            __html: ourOfficesTitle,
+                          }}
+                        ></h2>
                       </div>
                     </div>
                     {officeItems.map(world => (
                       <div className="col-md-6 col-lg-4 col-sm-6 col-12">
                         <div className="w-c-box-main">
                           <div className="w-c-box">
-                            <h3>{world.regionName}</h3>
+                            <h3
+                              dangerouslySetInnerHTML={{
+                                __html: world.regionName,
+                              }}
+                            ></h3>
                             <ul className="city-name">
                               {world.regionItems.map(item => (
                                 <Li back={item.icon.asset.url}>

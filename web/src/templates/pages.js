@@ -180,9 +180,10 @@ const pageTemplate = ({ data }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         href={item.link}
-                      >
-                        {item.text}
-                      </ItemWrap>
+                        dangerouslySetInnerHTML={{
+                          __html: item.text,
+                        }}
+                      ></ItemWrap>
                     ))}
                   </div>
                 </div>

@@ -55,7 +55,6 @@ class Navigation extends React.Component {
           data-target="#navbarNav"
           data-toggle="collapse"
           type="button"
-          role="toggle-nav"
         >
           <img src={toggle} alt="toggle" />
         </button>

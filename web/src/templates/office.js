@@ -56,8 +56,16 @@ const officeTemplate = ({ data }) => {
                 <div className="row ">
                   <div className="col-md-12">
                     <div className="temp-title">
-                      <h1>{officeTitle}</h1>
-                      <h2>{officeSubtitle}</h2>
+                      <h1
+                        dangerouslySetInnerHTML={{
+                          __html: officeTitle,
+                        }}
+                      ></h1>
+                      <h2
+                        dangerouslySetInnerHTML={{
+                          __html: officeSubtitle,
+                        }}
+                      ></h2>
                     </div>
                   </div>
                 </div>
@@ -85,9 +93,12 @@ const officeTemplate = ({ data }) => {
                                 __html: item.employeeName,
                               }}
                             ></span>
-                            <span className="function">
-                              {item.imployeeFunction}
-                            </span>
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: item.imployeeFunction,
+                              }}
+                              className="function"
+                            ></span>
                           </li>
                         ))}
                       </ul>
@@ -103,12 +114,12 @@ const officeTemplate = ({ data }) => {
                         <img
                           src={
                             'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
-                            { ...item.location.lat } +
+                            item.location.lat +
                             ', ' +
-                            { ...item.location.long } +
+                            item.location.lng +
                             '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                           }
-                          alt={item.companyName}
+                          alt={'Google map'}
                         />
                         <h5>{item.companyName}</h5>
                         <p className="mb20">
@@ -126,7 +137,7 @@ const officeTemplate = ({ data }) => {
                               item.location.lng +
                               '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
                             }
-                            alt={item.companyName}
+                            alt={'Google map'}
                           />
                           <h5>{item.companyName}</h5>
                           <p className="mb20">
