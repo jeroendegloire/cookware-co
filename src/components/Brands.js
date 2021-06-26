@@ -119,7 +119,7 @@ const BrandsCom = () => {
                   </div>
 
                   <div className="brands-wrapper row">
-                    {brandsItems.map(item => (
+                    {brandsItems.map((item, index) => (
                       <div className="col-lg-4 col-sm-6">
                         <Fade>
                           <Link
@@ -130,6 +130,7 @@ const BrandsCom = () => {
                             <GatsbyImage
                               image={item.image.asset.gatsbyImageData}
                             />
+                            {index}
                           </Link>
                         </Fade>
                       </div>

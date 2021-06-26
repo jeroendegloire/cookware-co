@@ -34,6 +34,9 @@ const Office = styled.div`
     margin-left: -100px;
     margin-right: -100px;
   }
+  .button svg {
+    width: 37px;
+  }
 `
 
 const officeTemplate = ({ data }) => {
@@ -82,30 +85,68 @@ const officeTemplate = ({ data }) => {
                         <img src={officesLegend} alt="" />
                         <span>Sales office</span>
                       </div>
+                      {employeeInfoArray && contactMail && (
+                        <>
+                          {employeeInfoArray && (
+                            <>
+                              <h3>Who to contact?</h3>
+                              <ul className="contact-list">
+                                {employeeInfoArray.map(item => (
+                                  <li>
+                                    <span
+                                      dangerouslySetInnerHTML={{
+                                        __html: item.employeeName,
+                                      }}
+                                    ></span>
+                                    <span
+                                      dangerouslySetInnerHTML={{
+                                        __html: item.imployeeFunction,
+                                      }}
+                                      className="function"
+                                    ></span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </>
+                          )}
 
-                      <h3>Who to contact?</h3>
-
-                      <ul className="contact-list">
-                        {employeeInfoArray.map(item => (
-                          <li>
-                            <span
-                              dangerouslySetInnerHTML={{
-                                __html: item.employeeName,
-                              }}
-                            ></span>
-                            <span
-                              dangerouslySetInnerHTML={{
-                                __html: item.imployeeFunction,
-                              }}
-                              className="function"
-                            ></span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <a href={`mailto:${contactMail}`} className="button">
-                        <i className="icon-mail"></i>CONTACT US
-                      </a>
+                          {contactMail && (
+                            <a
+                              href={`mailto:${contactMail}`}
+                              className="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 44.19 18.83"
+                              >
+                                <title>Asset 2</title>
+                                <g id="Layer_2" data-name="Layer 2">
+                                  <g id="Layer_1-2" data-name="Layer 1">
+                                    <path
+                                      d="M42.94,0H16.58a1.32,1.32,0,0,0-1.24,1.38V17.45a1.32,1.32,0,0,0,1.24,1.38H43a1.32,1.32,0,0,0,1.24-1.38V1.38A1.32,1.32,0,0,0,42.94,0ZM41.27,1.05,29.94,10.39a.28.28,0,0,1-.18.06.27.27,0,0,1-.17-.06L18.26,1.05Zm-25,16.1V1.38a.31.31,0,0,1,.3-.33.26.26,0,0,1,.18.07l8.66,7.13Zm.79.63,9.12-8.89L29,11.23a1.14,1.14,0,0,0,1.47,0l2.84-2.34,9.12,8.89Zm26.18-.63-9.14-8.9,8.66-7.13a.23.23,0,0,1,.17-.07.32.32,0,0,1,.31.33Z"
+                                      fill="#fff"
+                                    />
+                                    <path
+                                      d="M12.84,4.29H.33c-.18,0-.33.21-.33.47s.15.47.33.47H12.84c.18,0,.33-.21.33-.47S13,4.29,12.84,4.29Z"
+                                      fill="#fff"
+                                    />
+                                    <path
+                                      d="M12.84,8.27h-10c-.18,0-.33.21-.33.47s.15.47.33.47h10c.18,0,.33-.21.33-.47S13,8.27,12.84,8.27Z"
+                                      fill="#fff"
+                                    />
+                                    <path
+                                      d="M12.84,12.25H1.38c-.18,0-.33.21-.33.47s.15.47.33.47H12.84c.18,0,.33-.21.33-.47S13,12.25,12.84,12.25Z"
+                                      fill="#fff"
+                                    />
+                                  </g>
+                                </g>
+                              </svg>
+                              <br />
+                              CONTACT US
+                            </a>
+                          )}
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className="col-md-8">

@@ -22,13 +22,19 @@ const brandTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="brand-popup row">
-        <div className="col-md-6">
-          <GatsbyImage image={sidebar_image.asset.gatsbyImageData} />
-        </div>
-        <div className="col-md-6">
-          <div className="logo-wrapper">
-            <img alt={brandName} src={logo.asset.url} />
+        {sidebar_image.asset.gatsbyImageData && (
+          <div className="col-md-6">
+            <GatsbyImage image={sidebar_image.asset.gatsbyImageData} />
           </div>
+        )}
+
+        <div className="col-md-6">
+          {logo.asset.url && (
+            <div className="logo-wrapper">
+              <img alt={brandName} src={logo.asset.url} />
+            </div>
+          )}
+
           <div className="text-wrapper">
             <p>
               <PortableText content={_rawText} />
