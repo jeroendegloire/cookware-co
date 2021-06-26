@@ -68,8 +68,16 @@ const factoryTemplate = ({ data }) => {
                   <div className="row ">
                     <div className="col-md-12">
                       <div className="temp-title">
-                        <h1>{factoryTitle}</h1>
-                        <h2>{factorySubtitle}</h2>
+                        <h1
+                          dangerouslySetInnerHTML={{
+                            __html: factoryTitle,
+                          }}
+                        ></h1>
+                        <h2
+                          dangerouslySetInnerHTML={{
+                            __html: factorySubtitle,
+                          }}
+                        ></h2>
                       </div>
                     </div>
                   </div>
@@ -94,9 +102,12 @@ const factoryTemplate = ({ data }) => {
                         {employeeInfoArray.map(item => (
                           <li>
                             {item.employeeName}
-                            <span className="function">
-                              {item.imployeeFunction}
-                            </span>
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: item.imployeeFunctione,
+                              }}
+                              className="function"
+                            ></span>
                           </li>
                         ))}
                       </ul>

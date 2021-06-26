@@ -40,6 +40,12 @@ const IndexPage = ({ data }) => {
         </ParallaxProvider>
         <Footer />
       </Layout>
+      <script
+        id="CookieDeclaration"
+        src="https://consent.cookiebot.com/77200143-d938-4179-b1cb-80f084ad36c5/cd.js"
+        type="text/javascript"
+        async
+      ></script>
     </ThemeProvider>
   )
 }

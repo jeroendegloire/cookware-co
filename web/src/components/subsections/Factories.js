@@ -50,7 +50,11 @@ const FactoriesCom = () => {
                           alt="Icon General management"
                           className="waw-sec-icon"
                         />
-                        <h2>{ourFactoriesTitle}</h2>
+                        <h2
+                          dangerouslySetInnerHTML={{
+                            __html: ourFactoriesTitle,
+                          }}
+                        ></h2>
                       </div>
                     </div>
                     {factoriesItems.map(world => (

@@ -46,7 +46,11 @@ const OfficesComponents = () => {
                           alt="Icon General management"
                           className="waw-sec-icon"
                         />
-                        <h2>{ourOfficesTitle}</h2>
+                        <h2
+                          dangerouslySetInnerHTML={{
+                            __html: ourOfficesTitle,
+                          }}
+                        ></h2>
                       </div>
                     </div>
                     {officeItems.map(world => (

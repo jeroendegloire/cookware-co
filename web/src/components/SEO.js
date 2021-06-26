@@ -60,7 +60,24 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-          />
+            // script={[
+            //   {
+            //     src: 'https://consent.cookiebot.com/uc.js',
+            //     'data-cbid': '77200143-d938-4179-b1cb-80f084ad36c5',
+            //     'data-blockingmode': 'auto',
+            //     type: 'text/javascript',
+            //     id: 'CookieDeclaration',
+            //   },
+            // ]}
+          >
+            <script
+              id="Cookiebot"
+              src="https://consent.cookiebot.com/uc.js"
+              data-cbid="77200143-d938-4179-b1cb-80f084ad36c5"
+              data-blockingmode="auto"
+              type="text/javascript"
+            ></script>
+          </Helmet>
         )
       }}
     />
