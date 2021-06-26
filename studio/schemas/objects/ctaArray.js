@@ -9,7 +9,8 @@ export default {
             title: 'Links',
             of: [
                 { type: 'ctaLink' }
-            ]
+            ],
+            validation: Rule => Rule.required()
         },
     ],
     preview: {

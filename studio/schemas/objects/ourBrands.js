@@ -6,7 +6,8 @@ export default {
         {
             name: 'ourBrandsTitle',
             type: 'string',
-            title: 'Our brands title'
+            title: 'Our brands title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'brandsItems',
@@ -14,7 +15,8 @@ export default {
             title: 'Brands',
             of: [{
                 type: 'brandItem'
-            }]
+            }],
+            validation: Rule => Rule.required()
         }
     ],
 }

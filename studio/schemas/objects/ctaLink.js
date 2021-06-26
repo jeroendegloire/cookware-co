@@ -12,14 +12,33 @@ export default {
             }
         },
         {
+            name: 'prefix',
+            type: 'string',
+            title: 'Prefix',
+            description: 'Value above link text'
+        },
+        {
             name: 'text',
             type: 'string',
-            title: 'Text'
+            title: 'Text',
+            validation: Rule => Rule.required()
+        },
+        {
+            name: 'suffix',
+            type: 'string',
+            title: 'Suffix',
+            description: 'Value below link text'
         },
         {
             name: 'link',
             type: 'string',
             title: 'Link',
+            validation: Rule => Rule.required()
+        },
+        {
+            type: 'boolean',
+            name: 'new_window',
+            title: 'Open in new tab/window',
         },
     ],
     preview: {

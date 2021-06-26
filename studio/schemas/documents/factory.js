@@ -9,7 +9,8 @@ export default {
         {
             name: 'factoryTitle',
             type: 'string',
-            title: 'Title'
+            title: 'Title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'factorySubtitle',
@@ -45,7 +46,8 @@ export default {
         {
             title: 'Location',
             name: 'location',
-            type: 'geopoint'
+            type: 'geopoint',
+            validation: Rule => Rule.required()
         },
         {
             name: 'contactInfo',
@@ -66,11 +68,12 @@ export default {
             title: 'Factory info',
             of: [{
                 type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
-            }]
+            }],
+            validation: Rule => Rule.required()
         },
         {
             name: 'link',
-            type: 'string',
+            type: 'url',
             title: 'Website url'
         },
         {
@@ -80,11 +83,12 @@ export default {
             options: {
               source: 'factoryTitle',
               maxLength: 200, // will be ignored if slugify is set
-              slugify: input => input
+              slugify: input => `factory/${input
                                    .toLowerCase()
                                    .replace(/\s+/g, '-')
-                                   .slice(0, 200)
-            }
+                                   .slice(0, 200)}`
+            },
+            validation: Rule => Rule.required()
         }
     ],
 }

@@ -9,12 +9,15 @@ export default {
         {
             name: 'sitename',
             type: 'string',
-            title: 'Site name'
+            title: 'Site name',
+            validation: Rule => Rule.required()
+
         },
         {
             name: 'logoSite',
             type: 'image',
-            title: 'Site logo'
+            title: 'Site logo',
+            validation: Rule => Rule.required()
         },
         {
             name: 'menu',
@@ -22,17 +25,26 @@ export default {
             title: 'Main navigation',
             of: [{
                 type: 'menuLink'
-            }]
+            }],
+            validation: Rule => Rule.required()
         },
         {
             name: 'logoFooter',
             type: 'image',
-            title: 'Footer image'
+            title: 'Footer image',
+            validation: Rule => Rule.required()
         },
         {
             name: 'metaDescription',
             type: 'text',
-            title: 'Meta description'
+            title: 'Meta description',
+            validation: Rule => Rule.required()
+        },
+        {
+            name: 'socialImage',
+            type: 'image',
+            title: 'Social image',
+            validation: Rule => Rule.required()
         },
     
     ],

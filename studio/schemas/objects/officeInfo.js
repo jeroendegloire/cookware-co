@@ -6,7 +6,8 @@ export default {
         {
             name: 'companyName',
             type: 'string',
-            title: 'Company name'
+            title: 'Company name',
+            validation: Rule => Rule.required()
         },
         {
             title: 'Location',
@@ -19,7 +20,8 @@ export default {
             title: 'Company info',
             of: [{
                 type: 'block' // address, zipcode, country, VAT number, bank name, IBAN, BIC
-            }]
+            }],
+            validation: Rule => Rule.required()
         }
     ],
 }

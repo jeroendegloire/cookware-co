@@ -6,12 +6,14 @@ export default {
         {
             name: 'title',
             type: 'string',
-            title: 'Link title'
+            title: 'Link title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'url',
             type: 'string',
-            title: 'Link URL '
+            title: 'Link URL',
+            validation: Rule => Rule.required()
         },
     ],
 }

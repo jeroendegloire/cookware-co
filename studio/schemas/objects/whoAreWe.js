@@ -6,52 +6,102 @@ export default {
         {
             name: 'title',
             type: 'string',
-            title: 'Title'
+            title: 'Title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'subtitle',
             type: 'string',
-            title: 'Subtitle'
+            title: 'Subtitle',
+            validation: Rule => Rule.required()
         },
         {
             name: 'firstParagraph',
             type: 'text',
-            title: 'First paragraph'
+            title: 'First paragraph',
+            validation: Rule => Rule.required()
         },
         {
             name: 'image1',
             type: 'image',
-            title: 'Top image'
+            title: 'Top image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  options: {
+                    isHighlighted: true // <-- make this field easily accessible
+                  }
+                },
+            ],
+            validation: Rule => Rule.required()
         },
         {
             name: 'first_tagline',
             type: 'string',
-            title: 'First tagline'
+            title: 'First tagline',
+            validation: Rule => Rule.required()
         },
         {
             name: 'image2',
             type: 'image',
-            title: 'First tagline image'
+            title: 'First tagline image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  options: {
+                    isHighlighted: true // <-- make this field easily accessible
+                  }
+                },
+            ],
+            validation: Rule => Rule.required()
         },
         {
             name: 'secondParagraph',
             type: 'text',
-            title: 'Second paragraph'
+            title: 'Second paragraph',
+            validation: Rule => Rule.required()
         },
         {
             name: 'second_tagline',
             type: 'string',
-            title: 'Second tagline'
+            title: 'Second tagline',
+            validation: Rule => Rule.required()
         },
         {
             name: 'image3',
             type: 'image',
-            title: 'Second tagline image'
+            title: 'Second tagline image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  options: {
+                    isHighlighted: true // <-- make this field easily accessible
+                  }
+                },
+            ],
+            validation: Rule => Rule.required()
         },
         {
             name: 'image4',
             type: 'image',
-            title: 'Bottom image'
+            title: 'Bottom image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  options: {
+                    isHighlighted: true // <-- make this field easily accessible
+                  }
+                },
+            ],
+            validation: Rule => Rule.required()
         }
     ],
 }

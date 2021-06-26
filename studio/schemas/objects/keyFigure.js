@@ -8,7 +8,13 @@ export default {
             type: 'image',
             options: {
                 accept: 'image/svg+xml,.svg'
-            }
+            },
+            validation: Rule => Rule.required()
+        },
+        {
+            name: 'intro',
+            type: 'string',
+            title: 'Intro'
         },
         {
             name: 'prefix',
@@ -18,7 +24,8 @@ export default {
         {
             name: 'value',
             type: 'number',
-            title: 'Value'
+            title: 'Value',
+            validation: Rule => Rule.required()
         },
         {
             name: 'suffix',

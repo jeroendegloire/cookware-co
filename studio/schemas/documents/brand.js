@@ -9,28 +9,41 @@ export default {
         {
             name: 'brandName',
             type: 'string',
-            title: 'Brand name'
+            title: 'Brand name',
+            validation: Rule => Rule.required()
         },
         {
             name: 'logo',
             type: 'image',
-            title: 'Logo'
+            title: 'Logo',
         },
         {
             name: 'text',
             type: 'array', 
             of: [{type: 'block'}],
-            title: 'Text'
+            title: 'Text',
+            validation: Rule => Rule.required()
         },
         {
             name: 'link',
-            type: 'string',
+            type: 'url',
             title: 'Website url'
         },
         {
             name: 'sidebar_image',
             type: 'image',
-            title: 'Sidebar image'
+            title: 'Sidebar image',
+            fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  options: {
+                    isHighlighted: true // <-- make this field easily accessible
+                  }
+                },
+            ],
+            validation: Rule => Rule.required()
         },
         {
             name: 'imagesArray',
@@ -38,20 +51,31 @@ export default {
             title: 'Images',
             of: [{
                 type: 'image',
+                fields: [
+                    {
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alt',
+                      options: {
+                        isHighlighted: true // <-- make this field easily accessible
+                      }
+                    },
+                ],
             }]
         },
         {
-            title: 'Slug',
+            title: 'Path',
             name: 'slug',
             type: 'slug',
             options: {
               source: 'brandName',
               maxLength: 200, // will be ignored if slugify is set
-              slugify: input => input
+              slugify: input => `brand/${input
                                    .toLowerCase()
                                    .replace(/\s+/g, '-')
-                                   .slice(0, 200)
-            }
-          }
+                                   .slice(0, 200)}`
+            },
+            validation: Rule => Rule.required()
+          },
     ],
 }

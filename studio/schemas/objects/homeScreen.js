@@ -6,7 +6,8 @@ export default {
         {
             name: 'background_image',
             type: 'image',
-            title: 'Background image'
+            title: 'Background image',
+            validation: Rule => Rule.required()
         },
         {
             name: 'logo',
@@ -16,7 +17,8 @@ export default {
         {
             name: 'slogan',
             type: 'string',
-            title: 'Slogan'
+            title: 'Slogan',
+            validation: Rule => Rule.required()
         }
     ],
 }

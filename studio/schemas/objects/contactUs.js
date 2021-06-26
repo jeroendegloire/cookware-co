@@ -6,7 +6,8 @@ export default {
         {
             name: 'contectUsTitle',
             type: 'string',
-            title: 'Contact us title'
+            title: 'Contact us title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'info',
@@ -24,7 +25,7 @@ export default {
                         name: "email", // Error message is "Does not match email-pattern"
                         invert: false, // Boolean to allow any value that does NOT match pattern
                     }
-                ),
+                ).required()
         }
     ],
 }

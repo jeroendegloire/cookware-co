@@ -6,7 +6,8 @@ export default {
         {
             name: 'keyFiguresTitle',
             type: 'string',
-            title: 'Key figures title'
+            title: 'Key figures title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'keyFiguresArray',
@@ -14,7 +15,8 @@ export default {
             title: 'Key figures array',
             of: [{
                     type: 'keyFigure'
-                }]
+            }],
+            validation: Rule => Rule.required()
         }
     ],
 }

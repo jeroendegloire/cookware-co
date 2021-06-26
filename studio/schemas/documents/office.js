@@ -9,7 +9,8 @@ export default {
         {
             name: 'officeTitle',
             type: 'string',
-            title: 'Title'
+            title: 'Title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'officeSubtitle',
@@ -48,7 +49,11 @@ export default {
             title: 'Office info array',
             of: [{
                 type: 'officeInfo'
-            }]
+            }],
+            options: {
+                editModal: 'fullscreen'
+            },
+            validation: Rule => Rule.required()
         },
         {
             title: 'Path',
@@ -57,11 +62,12 @@ export default {
             options: {
               source: 'officeTitle',
               maxLength: 200, // will be ignored if slugify is set
-              slugify: input => input
+              slugify: input => `office/${input
                                    .toLowerCase()
                                    .replace(/\s+/g, '-')
-                                   .slice(0, 200)
-            }
+                                   .slice(0, 200)}`
+            },
+            validation: Rule => Rule.required()
         }
     ],
 }

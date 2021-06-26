@@ -9,42 +9,50 @@ export default {
       {
         name: 'hero',
         title: 'Hero section',
-        type: 'homeScreen'
+        type: 'homeScreen',
+        validation: Rule => Rule.required()
       },
       {
         name: 'whoAreWe',
         title: 'Who are we',
-        type: 'whoAreWe'
+        type: 'whoAreWe',
+        validation: Rule => Rule.required()
       },
       {
         name: 'keyFigures',
         title: 'Key figures',
-        type: 'keyFigures'
+        type: 'keyFigures',
+        validation: Rule => Rule.required()
       },
       {
         name: 'history',
         title: 'History',
-        type: 'history'
+        type: 'history',
+        validation: Rule => Rule.required()
       },
       {
         name: 'contactUs',
         title: 'Contact us',
-        type: 'contactUs'
+        type: 'contactUs',
+        validation: Rule => Rule.required()
       },
       {
         name: 'ourOffices',
         title: 'Offices',
-        type: 'ourOffices'
+        type: 'ourOffices',
+        validation: Rule => Rule.required()
       },
       {
         name: 'ourFactories',
         title: 'Factories',
-        type: 'ourFactories'
+        type: 'ourFactories',
+        validation: Rule => Rule.required()
       },
       {
         name: 'ourBrands',
         title: 'Brands',
-        type: 'ourBrands'
+        type: 'ourBrands',
+        validation: Rule => Rule.required()
       },
     ],
     preview: {

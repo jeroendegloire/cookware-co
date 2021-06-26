@@ -6,7 +6,8 @@ export default {
         {
             name: 'ourOfficesTitle',
             type: 'string',
-            title: 'Our offices title'
+            title: 'Our offices title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'officeItems',
@@ -14,7 +15,8 @@ export default {
             title: 'Offices',
             of: [{
                 type: 'region'
-            }]
+            }],
+            validation: Rule => Rule.required()
         }
     ],
 }

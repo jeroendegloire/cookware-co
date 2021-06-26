@@ -6,7 +6,8 @@ export default {
         {
             name: 'employeeName',
             type: 'string',
-            title: 'Employee name'
+            title: 'Employee name',
+            validation: Rule => Rule.required()
         },
         {
             name: 'imployeeFunction',

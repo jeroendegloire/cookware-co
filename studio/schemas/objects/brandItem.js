@@ -6,13 +6,14 @@ export default {
         {
             name: 'image',
             type: 'image',
-            title: 'Teaser image'
+            title: 'Teaser image',
+            validation: Rule => Rule.required()
         },
         {
             name: 'reference',
             type: 'reference',
             title: 'Link',
-            to: [{type: 'brand'}]
+            to: [{type: 'brand'}],
         },
     ],
     preview: {

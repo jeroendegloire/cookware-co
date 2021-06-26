@@ -9,12 +9,13 @@ export default {
         {
             name: 'title',
             type: 'string',
-            title: 'Title'
+            title: 'Title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'image',
             type: 'image',
-            title: 'Hero image'
+            title: 'Hero image',
         },
         {
             name: 'content',
@@ -24,7 +25,8 @@ export default {
                 {
                   type: 'block',
                 },
-              ]
+            ],
+            validation: Rule => Rule.required()
         },
         {
             name: 'ctaArray',
@@ -32,7 +34,7 @@ export default {
             title: 'CTA Buttons'
         },
         {
-            title: 'Slug',
+            title: 'Path',
             name: 'slug',
             type: 'slug',
             options: {
@@ -42,7 +44,8 @@ export default {
                                    .toLowerCase()
                                    .replace(/\s+/g, '-')
                                    .slice(0, 200)
-            }
-          }
+            },
+            validation: Rule => Rule.required()
+        },
     ],
 }

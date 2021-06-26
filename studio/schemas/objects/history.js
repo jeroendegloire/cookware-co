@@ -6,7 +6,8 @@ export default {
         {
             name: 'historyTitle',
             type: 'string',
-            title: 'History title'
+            title: 'History title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'historyArray',
@@ -14,7 +15,8 @@ export default {
             title: 'History array',
             of: [{
                 type: 'historyItem'
-            }]
+            }],
+            validation: Rule => Rule.required().max(8)
         }
     ],
 }

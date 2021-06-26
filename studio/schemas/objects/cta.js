@@ -14,13 +14,15 @@ export default {
         {
             name: 'countryName',
             type: 'string',
-            title: 'Country name'
+            title: 'Country name',
+            validation: Rule => Rule.required()
         },
         {
             name: 'reference',
             type: 'reference',
             title: 'Link',
-            to: [{type: 'factory'}, {type: 'office'}]
+            to: [{type: 'factory'}, {type: 'office'}],
+            validation: Rule => Rule.required()
         },
     ],
 }

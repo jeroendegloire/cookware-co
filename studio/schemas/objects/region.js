@@ -6,7 +6,8 @@ export default {
         {
             name: 'regionName',
             type: 'string',
-            title: 'Region name'
+            title: 'Region name',
+            validation: Rule => Rule.required()
         },
         {
             name: 'regionItems',
@@ -14,7 +15,8 @@ export default {
             title: 'Call to actions',
             of: [{
                 type: 'cta'
-            }]
+            }],
+            validation: Rule => Rule.required()
         },
     ],
 }

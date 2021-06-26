@@ -6,12 +6,14 @@ export default {
         {
             name: 'year',
             type: 'number',
-            title: 'Year'
+            title: 'Year',
+            validation: Rule => Rule.required()
         },
         {
             name: 'info',
             type: 'string',
-            title: 'Info'
+            title: 'Info',
+            validation: Rule => Rule.required()
         }
     ],
 }
