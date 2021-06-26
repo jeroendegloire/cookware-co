@@ -34,6 +34,9 @@ const IndexPage = ({ data }) => {
           title="Home"
           description={data.sanitySiteSettings.metaDescription}
         />
+        {data.sanitySiteSettings.socialImage.asset.url && (
+          <SEO image={data.sanitySiteSettings.socialImage.asset.url} />
+        )}
         <Header />
         <ParallaxProvider scrollAxis="vertical">
           <Main />
@@ -56,6 +59,11 @@ export const query = graphql`
   query HomePageQuery {
     sanitySiteSettings {
       metaDescription
+      socialImage {
+        asset {
+          url
+        }
+      }
     }
   }
 `
