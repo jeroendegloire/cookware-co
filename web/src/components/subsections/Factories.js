@@ -70,6 +70,7 @@ const FactoriesCom = () => {
                               {world.regionItems.map(item => (
                                 <Li back={item.icon.asset.url}>
                                   <Link
+                                    aria-label="factory"
                                     to={item.reference.slug.current}
                                     asModal
                                   >

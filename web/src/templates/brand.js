@@ -17,6 +17,8 @@ const brandTemplate = ({ data, pageContext }) => {
     imagesArray,
   } = data.sanityBrand
 
+  console.log(pageContext)
+
   return (
     <Layout>
       <div className="brand-popup row">

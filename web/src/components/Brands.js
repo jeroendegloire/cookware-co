@@ -122,7 +122,11 @@ const BrandsCom = () => {
                     {brandsItems.map(item => (
                       <div className="col-lg-4 col-sm-6">
                         <Fade>
-                          <Link to={item.reference.slug.current} asModal>
+                          <Link
+                            aria-label="brands"
+                            to={item.reference.slug.current}
+                            asModal
+                          >
                             <GatsbyImage
                               image={item.image.asset.gatsbyImageData}
                             />

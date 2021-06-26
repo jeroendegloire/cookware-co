@@ -168,6 +168,7 @@ const pageTemplate = ({ data }) => {
         <div className="container page-vacancies">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-9 ">
+              <h1 class="mb-8">{title}</h1>
               <PortableText content={_rawContent} />
 
               <div className="city-name-wrep">

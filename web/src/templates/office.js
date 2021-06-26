@@ -108,45 +108,30 @@ const officeTemplate = ({ data }) => {
                       </a>
                     </div>
                   </div>
-                  {officeInfoArray.map(item =>
-                    item.length === 1 ? (
-                      <div className="col-md-8 office-adderess">
-                        <img
-                          src={
-                            'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
-                            item.location.lat +
-                            ', ' +
-                            item.location.lng +
-                            '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
-                          }
-                          alt={'Google map'}
-                        />
-                        <h5>{item.companyName}</h5>
-                        <p className="mb20">
-                          <PortableText content={item._rawCompanyInfo} />
-                        </p>
+                  <div className="col-md-8">
+                    <div className="container">
+                      <div className="row">
+                        {officeInfoArray.map(item => (
+                          <div className="col-12 col-md-6 office-adderess">
+                            <img
+                              src={
+                                'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                                item.location.lat +
+                                ', ' +
+                                item.location.lng +
+                                '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                              }
+                              alt={'Google map'}
+                            />
+                            <h5>{item.companyName}</h5>
+                            <p className="mb20">
+                              <PortableText content={item._rawCompanyInfo} />
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    ) : (
-                      <div className="col-md-4">
-                        <div className="office-adderess">
-                          <img
-                            src={
-                              'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
-                              item.location.lat +
-                              ', ' +
-                              item.location.lng +
-                              '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
-                            }
-                            alt={'Google map'}
-                          />
-                          <h5>{item.companyName}</h5>
-                          <p className="mb20">
-                            <PortableText content={item._rawCompanyInfo} />
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

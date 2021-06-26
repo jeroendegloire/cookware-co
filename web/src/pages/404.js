@@ -1,12 +1,14 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
 import logoSlogan from '../images/logo--slogan.svg'
+import backIcon from '../images/back-icon.svg'
 import Layout from '../components/layout'
 
 const NotFound = styled.div`
@@ -125,7 +127,7 @@ const NotFound = styled.div`
     bottom: 4rem;
     text-align: center;
     display: block;
-    margin-top: 4rem;
+    margin-top: 7rem;
     margin-bottom: 0;
     right: 0;
 
@@ -135,24 +137,11 @@ const NotFound = styled.div`
   }
 `
 
-const NotFoundPage = () => (
+const NotFoundPage = ({ data }) => (
   <Layout>
     <NotFound>
       <div className="hero">
-        <StaticQuery
-          query={graphql`
-            query NotFoundQuery {
-              file(relativePath: { eq: "hero_vacancies.jpg" }) {
-                childImageSharp {
-                  fluid(maxWidth: 1600, maxHeight: 400) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
-          `}
-          render={data => <Img fluid={data.file.childImageSharp.fluid} />}
-        />
+        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
 
         <img
           className="logo"
@@ -167,9 +156,28 @@ const NotFoundPage = () => (
             <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
           </div>
         </div>
+        <Link
+          className="button-back"
+          to="/"
+          state={{
+            noScroll: true,
+          }}
+        >
+          <img src={backIcon} className="back-icon" alt="" />
+        </Link>
       </div>
     </NotFound>
   </Layout>
 )
 
 export default NotFoundPage
+
+export const query = graphql`
+  {
+    file(relativePath: { eq: "hero_vacancies.jpg" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+  }
+`
