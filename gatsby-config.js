@@ -45,6 +45,7 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -71,6 +72,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: {
+          '/*': [
+            'Access-Control-Allow-Origin: *',
+            'Content-Security-Policy: frame-ancestors  https://preview-cookwareco.gtsb.io',
+          ],
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-modal-routing-3`,
       options: {

@@ -133,6 +133,7 @@ const KFCom = () => {
                               <CountUp
                                 duration={3}
                                 end={state.didViewCountUp ? item.value : 0}
+                                separator={'.'}
                               />
                               <span
                                 dangerouslySetInnerHTML={{

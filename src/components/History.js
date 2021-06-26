@@ -242,7 +242,7 @@ const Waw = styled.section`
     }
   }
   .tc-item {
-    h5 {
+    span {
       font-family: 'Montserrat';
       font-size: 35px;
       color: #7c8c42;
@@ -314,7 +314,7 @@ const HistoryCom = () => (
                               item => (
                                 <li>
                                   <div className="tc-item">
-                                    <h5>{item.year}</h5>
+                                    <span>{item.year}</span>
                                     <div
                                       dangerouslySetInnerHTML={{
                                         __html: item.info,
