@@ -25,16 +25,6 @@ export default {
             name: 'image1',
             type: 'image',
             title: 'Top image',
-            fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt',
-                  options: {
-                    isHighlighted: true // <-- make this field easily accessible
-                  }
-                },
-            ],
             validation: Rule => Rule.required()
         },
         {
@@ -47,16 +37,6 @@ export default {
             name: 'image2',
             type: 'image',
             title: 'First tagline image',
-            fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt',
-                  options: {
-                    isHighlighted: true // <-- make this field easily accessible
-                  }
-                },
-            ],
             validation: Rule => Rule.required()
         },
         {
@@ -75,32 +55,12 @@ export default {
             name: 'image3',
             type: 'image',
             title: 'Second tagline image',
-            fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt',
-                  options: {
-                    isHighlighted: true // <-- make this field easily accessible
-                  }
-                },
-            ],
             validation: Rule => Rule.required()
         },
         {
             name: 'image4',
             type: 'image',
             title: 'Bottom image',
-            fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt',
-                  options: {
-                    isHighlighted: true // <-- make this field easily accessible
-                  }
-                },
-            ],
             validation: Rule => Rule.required()
         }
     ],

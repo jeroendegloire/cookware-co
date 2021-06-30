@@ -33,16 +33,6 @@ export default {
             name: 'sidebar_image',
             type: 'image',
             title: 'Sidebar image',
-            fields: [
-                {
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt',
-                  options: {
-                    isHighlighted: true // <-- make this field easily accessible
-                  }
-                },
-            ],
             validation: Rule => Rule.required()
         },
         {
@@ -51,16 +41,6 @@ export default {
             title: 'Images',
             of: [{
                 type: 'image',
-                fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alt',
-                      options: {
-                        isHighlighted: true // <-- make this field easily accessible
-                      }
-                    },
-                ],
             }]
         },
         {

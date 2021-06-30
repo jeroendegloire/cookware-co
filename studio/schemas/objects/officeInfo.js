@@ -7,7 +7,6 @@ export default {
             name: 'companyName',
             type: 'string',
             title: 'Company name',
-            validation: Rule => Rule.required()
         },
         {
             title: 'Location',
