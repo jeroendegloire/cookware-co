@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mac files
 .DS_Store
 
@@ -6,3 +7,14 @@
 
 # lerna files
 /lerna-debug.log
+=======
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+.env
+
+# Build directory
+/public
+.DS_Store
+>>>>>>> 68bff256304fc30e2a567787185e27744abd72a5
