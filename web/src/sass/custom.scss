@@ -16,6 +16,12 @@
 	font-display: swap;
 }
 
+html,
+body,
+#___gatsby {
+	height: 100%;
+}
+
 body {
 	font-family: HelveticaNeue;
 	-webkit-font-smoothing: subpixel-antialiased;
@@ -357,8 +363,8 @@ article {
 	}
 
 	.logo-wrapper img {
-		max-height: 200px;
-		max-width: 300px;
+		width: 300px;
+		max-width: 100%;
 		width: auto;
 		height: auto;
 		margin-bottom: 3rem;
@@ -661,4 +667,9 @@ iframe {
 
 .ReactModal__Content {
 	overflow-x: hidden !important;
+	inset: 0 !important;
+
+	@media screen and (min-width: 768px) {
+		inset: 40px !important;
+	}
 }

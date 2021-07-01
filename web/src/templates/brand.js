@@ -22,13 +22,19 @@ const brandTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="brand-popup row">
-        <div className="col-md-6">
-          <GatsbyImage image={sidebar_image.asset.gatsbyImageData} />
-        </div>
-        <div className="col-md-6">
-          <div className="logo-wrapper">
-            <img alt={brandName} src={logo.asset.url} />
+        {sidebar_image.asset.gatsbyImageData && (
+          <div className="col-md-6">
+            <GatsbyImage image={sidebar_image.asset.gatsbyImageData} />
           </div>
+        )}
+
+        <div className="col-md-6">
+          {logo.asset.url && (
+            <div className="logo-wrapper">
+              <img alt={brandName} src={logo.asset.url} />
+            </div>
+          )}
+
           <div className="text-wrapper">
             <p>
               <PortableText content={_rawText} />
@@ -65,10 +71,10 @@ const brandTemplate = ({ data, pageContext }) => {
           {pageContext.previous ? (
             <Link
               className="link-previous"
-              to={`/${pageContext.previous.slug.current}`}
+              to={`/${pageContext.previous.reference.slug.current}`}
               asModal
             >
-              ← Go to {pageContext.previous.brandName}
+              ← Go to {pageContext.previous.reference.brandName}
             </Link>
           ) : (
             ''
@@ -77,10 +83,10 @@ const brandTemplate = ({ data, pageContext }) => {
           {pageContext.next ? (
             <Link
               className="link-next"
-              to={`/${pageContext.next.slug.current}`}
+              to={`/${pageContext.next.reference.slug.current}`}
               asModal
             >
-              Go to {pageContext.next.brandName} →
+              Go to {pageContext.next.reference.brandName} →
             </Link>
           ) : (
             ''

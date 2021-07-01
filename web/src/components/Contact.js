@@ -15,7 +15,7 @@ const Contact = styled.section`
   .waw-contact-us-bake {
     text-align: center;
     background: #676260;
-    padding: 35px 0 45px;
+    padding: 35px 15px 45px;
     position: relative;
     z-index: 1;
 

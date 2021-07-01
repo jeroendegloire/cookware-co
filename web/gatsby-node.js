@@ -38,44 +38,43 @@ exports.createPages = ({ graphql, actions }) => {
 
   const brand = graphql(`
     {
-      pages: allSanityBrand {
-        edges {
-          node {
-            slug {
-              current
+      pages: sanityFrontpage {
+        ourBrands {
+          brandsItems {
+            reference {
+              slug {
+                current
+              }
+              brandName
             }
-            _id
-            brandName
-          }
-          next {
-            slug {
-              current
-            }
-            brandName
-          }
-          previous {
-            slug {
-              current
-            }
-            brandName
           }
         }
       }
     }
   `).then(result => {
-    result.data.pages.edges.forEach(({ node, next, previous }) => {
-      console.info(`Creating page for: "${node.brandName}"...`)
+    const resultBrand = result.data.pages.ourBrands.brandsItems
 
-      const slug = node.slug.current
+    resultBrand.forEach((page, index) => {
+      //get the index
+      // let index = resultBrand.map(item => {
+      //   for (let i = 0; i < item.length; i++) {
+      //     console.info(item._id)
+      //   }
+      // })
+
+      console.info(`Creating page for: "${page.reference.brandName}"...`)
+
+      const slug = page.reference.slug.current
 
       actions.createPage({
         path: slug,
         component: templateBrand,
         context: {
-          id: node._id,
+          id: page._id,
           slug,
-          previous,
-          next,
+          previous: index === 0 ? null : resultBrand[index - 1],
+          next:
+            index === resultBrand.length - 1 ? null : resultBrand[index + 1],
         },
       })
     })

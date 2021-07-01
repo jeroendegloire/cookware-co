@@ -116,7 +116,12 @@ const KFCom = () => {
                       <div className="kf-box-inner">
                         <div className="kf-box">
                           <img src={item.icon.asset.url} alt="Turnover" />
-                          <span className="more-then">MORE THAN</span>
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: item.intro,
+                            }}
+                            className="more-then"
+                          ></span>
                           <VisibilitySensor
                             onChange={onVisibilityChange}
                             offset={{
@@ -170,6 +175,7 @@ export const query = graphql`
       keyFigures {
         keyFiguresTitle
         keyFiguresArray {
+          intro
           value
           suffix
           prefix

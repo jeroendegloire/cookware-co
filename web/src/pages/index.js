@@ -34,6 +34,9 @@ const IndexPage = ({ data }) => {
           title="Home"
           description={data.sanitySiteSettings.metaDescription}
         />
+        {data.sanitySiteSettings.socialImage.asset.url && (
+          <SEO image={data.sanitySiteSettings.socialImage.asset.url} />
+        )}
         <Header />
         <ParallaxProvider scrollAxis="vertical">
           <Main />
@@ -42,7 +45,7 @@ const IndexPage = ({ data }) => {
       </Layout>
       <script
         id="CookieDeclaration"
-        src="https://consent.cookiebot.com/77200143-d938-4179-b1cb-80f084ad36c5/cd.js"
+        src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
         type="text/javascript"
         async
       ></script>
@@ -56,6 +59,11 @@ export const query = graphql`
   query HomePageQuery {
     sanitySiteSettings {
       metaDescription
+      socialImage {
+        asset {
+          url
+        }
+      }
     }
   }
 `

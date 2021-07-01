@@ -146,6 +146,23 @@ const PagesWrapper = styled.div`
       width: 80px;
     }
   }
+
+  .page-vacancies {
+    p {
+      margin: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: center;
+      font-family: 'Montserrat';
+      color: #676260;
+    }
+  }
 `
 
 const ItemWrap = styled.a`
@@ -160,11 +177,14 @@ const pageTemplate = ({ data }) => {
   return (
     <Layout>
       <PagesWrapper>
-        <div className="hero">
-          <GatsbyImage image={image.asset.gatsbyImageData} />
+        {image ? (
+          <div className="hero">
+            <GatsbyImage image={image?.asset?.gatsbyImageData} />
 
-          <img className="logo" src={logoSlogan} alt={title} />
-        </div>
+            <img className="logo" src={logoSlogan} alt={title} />
+          </div>
+        ) : null}
+
         <div className="container page-vacancies">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-9 ">
@@ -174,18 +194,20 @@ const pageTemplate = ({ data }) => {
               <div className="city-name-wrep">
                 <div className="city-name-inner">
                   <div className="city-name">
-                    {ctaArray.links.map(item => (
-                      <ItemWrap
-                        back={item.icon.asset.url}
-                        className="dark-perot item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={item.link}
-                        dangerouslySetInnerHTML={{
-                          __html: item.text,
-                        }}
-                      ></ItemWrap>
-                    ))}
+                    {ctaArray
+                      ? ctaArray.links.map(item => (
+                          <ItemWrap
+                            back={item.icon.asset.url}
+                            className="dark-perot item"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={item.link}
+                            dangerouslySetInnerHTML={{
+                              __html: item.text,
+                            }}
+                          ></ItemWrap>
+                        ))
+                      : null}
                   </div>
                 </div>
               </div>
