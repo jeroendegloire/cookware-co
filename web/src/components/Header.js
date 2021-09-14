@@ -13,6 +13,7 @@ const StickyTop = styled.div`
 
   .navbar-brand img {
     height: 45px;
+    display: block;
   }
 
   .navbar {
