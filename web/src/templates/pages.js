@@ -148,27 +148,6 @@ const PagesWrapper = styled.div`
       width: 80px;
     }
   }
-
-  .page-vacancies {
-    p {
-      margin: 1em;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      text-align: center;
-      font-family: 'Montserrat';
-      color: #676260;
-    }
-
-    a {
-      color: #676260;
-    }
-  }
 `
 
 const ItemWrap = styled.a`
