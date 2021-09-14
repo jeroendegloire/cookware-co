@@ -30,10 +30,7 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO
-          title="Home"
-          description={data.sanitySiteSettings.metaDescription}
-        />
+        <SEO description={data.sanitySiteSettings.metaDescription} />
         {data.sanitySiteSettings.socialImage.asset.url && (
           <SEO image={data.sanitySiteSettings.socialImage.asset.url} />
         )}
