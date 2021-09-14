@@ -49,7 +49,7 @@ const BrandTemplate = ({ data, pageContext }) => {
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
-        contentLabel="Modal" // TODO
+        contentLabel="Brand"
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>

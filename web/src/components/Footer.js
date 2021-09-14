@@ -59,7 +59,8 @@ const FooterCom = () => {
             <img alt="linkedln" src={linkedin} className="linkedin" />
           </a>
           <br />© {new Date().getFullYear()} Cookware Company All Rights
-          Reserved. <Link to="/cookie">Cookie settings</Link>
+          Reserved.{' '}
+          <a href="javascript: Cookiebot.renew()">Change your consent</a>
         </p>
       </div>
     </Footer>

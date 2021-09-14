@@ -82,7 +82,7 @@ const OfficeTemplate = ({ data }) => {
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
-        contentLabel="Modal" // TODO
+        contentLabel="Office"
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>

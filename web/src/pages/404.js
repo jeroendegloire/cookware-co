@@ -1,8 +1,9 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
+import React, { useState, useEffect } from 'react'
+import { graphql, navigate, PageRenderer, Link } from 'gatsby'
 
 import styled from 'styled-components'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import Modal from 'react-modal'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
@@ -136,38 +137,72 @@ const NotFound = styled.div`
   }
 `
 
-const NotFoundPage = ({ data }) => (
-  <Layout>
-    <NotFound>
-      <div className="hero">
-        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
+Modal.setAppElement(`#___gatsby`)
 
-        <img
-          className="logo"
-          src={logoSlogan}
-          alt="Slogan: House of innovation."
-        />
-      </div>
-      <div className="container page-vacancies">
-        <div className="row justify-content-center">
-          <div className="col-md-10 col-lg-9 ">
-            <h1>NOT FOUND</h1>
-            <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-          </div>
-        </div>
-        <Link
-          className="button-back"
-          to="/"
-          state={{
-            noScroll: true,
-          }}
-        >
-          <img src={backIcon} className="back-icon" alt="" />
-        </Link>
-      </div>
-    </NotFound>
-  </Layout>
-)
+const NotFoundPage = ({ data }) => {
+  // PageRenderer stuff.
+  const building = typeof window === 'undefined'
+  const [indexPageData, setIndexPageData] = useState(
+    !building && window.indexPageData
+  )
+  useEffect(() => {
+    window.setIndexPageData = () => {
+      setIndexPageData(window.indexPageData)
+    }
+  }, [])
+
+  // Modal stuff.
+  const [modalOpen, setModalOpen] = useState(true)
+  const modalCloseTimeout = 300
+  const closeModal = () => {
+    setModalOpen(false)
+    setTimeout(() => navigate(`/`), modalCloseTimeout)
+  }
+
+  return (
+    <div>
+      <PageRenderer
+        key={'/'}
+        location={{ pathname: '/' }}
+        pageResources={indexPageData}
+        path="/"
+      />
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Brand"
+        closeTimeoutMS={modalCloseTimeout}
+      >
+        <Layout>
+          <NotFound>
+            <div className="hero">
+              <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
+
+              <img
+                className="logo"
+                src={logoSlogan}
+                alt="Slogan: House of innovation."
+              />
+            </div>
+            <div className="container page-vacancies">
+              <div className="row justify-content-center">
+                <div className="col-md-10 col-lg-9 ">
+                  <h1>NOT FOUND</h1>
+                  <p>
+                    You just hit a route that doesn&#39;t exist... the sadness.
+                  </p>
+                </div>
+              </div>
+              <Link className="button-back" to="/">
+                <img src={backIcon} className="back-icon" alt="" />
+              </Link>
+            </div>
+          </NotFound>
+        </Layout>
+      </Modal>
+    </div>
+  )
+}
 
 export default NotFoundPage
 
