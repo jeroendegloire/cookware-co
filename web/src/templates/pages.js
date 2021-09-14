@@ -164,6 +164,10 @@ const PagesWrapper = styled.div`
       font-family: 'Montserrat';
       color: #676260;
     }
+
+    a {
+      color: #676260;
+    }
   }
 `
 
