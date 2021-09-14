@@ -20,3 +20,10 @@ export const onPrefetchPathname = ({ loadPage }) => {
     })
   }
 }
+
+// https://github.com/gatsbyjs/gatsby/issues/7454#issuecomment-425403812
+export const shouldUpdateScroll = ({ routerProps }) => {
+  const hasAnchor = !!routerProps.location.hash // (ie. /#features)
+
+  return hasAnchor
+}
