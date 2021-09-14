@@ -8,6 +8,7 @@ import China from '../images/cb-icon-7.png'
 import backIcon from '../images/back-icon.svg'
 import factoriesLegend from '../images/map-legend--factories.svg'
 import PortableText from '../utils/portableText'
+import Seo from '../components/Seo'
 
 const Office = styled.div`
   background-color: #fff;
@@ -98,6 +99,7 @@ const FactoryTemplate = ({ data }) => {
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>
+          <Seo title={factoryTitle} />
           <Office className="city-temp-wrep">
             <div className="city-temp-wrep">
               <div className="city-temp-inner">

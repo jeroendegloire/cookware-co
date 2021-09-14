@@ -7,6 +7,7 @@ import Modal from 'react-modal'
 import PortableText from '../utils/portableText'
 import backIcon from '../images/back-icon.svg'
 import officesLegend from '../images/map-legend--offices.svg'
+import Seo from '../components/Seo'
 
 const Office = styled.div`
   background-color: #fff;
@@ -89,6 +90,7 @@ const OfficeTemplate = ({ data }) => {
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>
+          <Seo title={officeTitle} />
           <Office back={countryFlag.asset.url} className="city-temp-wrep">
             <div className="city-temp-wrep">
               <div className="city-temp-inner">

@@ -15,7 +15,6 @@ function Seo({ description, lang, meta, keywords, title, image }) {
             htmlAttributes={{
               lang,
             }}
-            title={title || officeTitle || factoryTitle || brandName}
             title={
               title
                 ? `${title} | ${data.sanitySiteSettings.sitename}`

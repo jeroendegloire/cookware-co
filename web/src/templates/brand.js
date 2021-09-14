@@ -6,6 +6,7 @@ import Modal from 'react-modal'
 
 import backIcon from '../images/back-icon.svg'
 import PortableText from '../utils/portableText'
+import Seo from '../components/Seo'
 
 Modal.setAppElement(`#___gatsby`)
 
@@ -53,6 +54,7 @@ const BrandTemplate = ({ data, pageContext }) => {
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>
+          <Seo title={brandName} />
           <div className="brand-popup row">
             {sidebar_image.asset.gatsbyImageData && (
               <div className="col-md-6">

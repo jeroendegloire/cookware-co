@@ -191,7 +191,7 @@ const PageTemplate = ({ data }) => {
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
-        contentLabel="Modal" // TODO
+        contentLabel="Page" // TODO
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>

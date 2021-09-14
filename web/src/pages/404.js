@@ -10,6 +10,7 @@ import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 import logoSlogan from '../images/logo--slogan.svg'
 import backIcon from '../images/back-icon.svg'
 import Layout from '../components/layout'
+import Seo from '../components/Seo'
 
 const NotFound = styled.div`
   background: #d6d6cd;
@@ -174,6 +175,7 @@ const NotFoundPage = ({ data }) => {
         closeTimeoutMS={modalCloseTimeout}
       >
         <Layout>
+          <Seo title="Page not found" />
           <NotFound>
             <div className="hero">
               <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
