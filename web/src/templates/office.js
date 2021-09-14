@@ -38,6 +38,9 @@ const Office = styled.div`
   .button svg {
     width: 37px;
   }
+  .office-adderess {
+    margin-bottom: 1.5rem;
+  }
 `
 
 Modal.setAppElement(`#___gatsby`)
@@ -185,7 +188,7 @@ const OfficeTemplate = ({ data }) => {
                         </div>
                       </div>
                       <div className="col-md-8">
-                        <div className="container">
+                        <div className="">
                           <div className="row">
                             {officeInfoArray.map(item => (
                               <div className="col-12 col-md-6 office-adderess">
