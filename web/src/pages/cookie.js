@@ -166,6 +166,14 @@ const PagesWrapper = styled.div`
 const cookiePage = ({ data }) => {
   return (
     <Layout>
+      <script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="334f8b27-09da-428a-bfbd-d628360aaa86"
+        data-blockingmode="auto"
+        type="text/javascript"
+        async
+      ></script>
       <Seo title="Cookie declaration" />
 
       <PagesWrapper>

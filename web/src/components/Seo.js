@@ -75,6 +75,7 @@ function Seo({ description, lang, meta, keywords, title, image }) {
               data-cbid="334f8b27-09da-428a-bfbd-d628360aaa86"
               data-blockingmode="auto"
               type="text/javascript"
+              async
             ></script>
           </Helmet>
         )
