@@ -371,6 +371,7 @@ article {
 	.logo-wrapper img {
 		width: 300px;
 		max-width: 50%;
+		max-height: 150px;
 		width: auto;
 		height: auto;
 		margin-bottom: 3rem;
@@ -699,5 +700,10 @@ iframe {
 
     a {
       color: #676260;
+	  text-decoration: underline;
+
+	  &:hover {
+		  text-decoration: none;
+	  }
     }
   }
