@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { navigate, PageRenderer, Link } from 'gatsby'
 import Modal from 'react-modal'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
@@ -208,20 +209,23 @@ const CookiePage = ({ data }) => {
               <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-9 ">
                   <h1 class="mb-8">Cookie declaration</h1>
-                  <script
-                    id="CookieDeclaration"
-                    src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
-                    type="text/javascript"
-                    async
-                  ></script>
+                  <Helmet>
+                    <script
+                      id="CookieDeclaration"
+                      src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
+                      type="text/javascript"
+                      async
+                    ></script>
+                  </Helmet>
                 </div>
               </div>
 
               <Link
                 className="button-back"
                 to="/"
-                state={{
-                  noScroll: true,
+                onClick={e => {
+                  e.preventDefault()
+                  closeModal()
                 }}
               >
                 <img src={backIcon} className="back-icon" alt="" />
