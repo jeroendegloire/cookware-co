@@ -13,7 +13,7 @@ import '../sass/custom.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Main from '../components/Main'
-import SEO from '../components/SEO'
+import SEO from '../components/Seo'
 import { ThemeProvider } from 'styled-components'
 
 const theme = {
@@ -43,12 +43,6 @@ const IndexPage = ({ data }) => {
         </ParallaxProvider>
         <Footer />
       </Layout>
-      <script
-        id="CookieDeclaration"
-        src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
-        type="text/javascript"
-        async
-      ></script>
     </ThemeProvider>
   )
 }

@@ -154,16 +154,30 @@ const officeTemplate = ({ data }) => {
                       <div className="row">
                         {officeInfoArray.map(item => (
                           <div className="col-12 col-md-6 office-adderess">
-                            <img
-                              src={
-                                'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                            <a
+                              href={
+                                'https://maps.google.com/?q=' +
                                 item.location.lat +
-                                ', ' +
-                                item.location.lng +
-                                '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                                ',' +
+                                item.location.lng
                               }
-                              alt={'Google map'}
-                            />
+                              title="Link to google maps"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <img
+                                src={
+                                  'https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap&markers=size:mid%7Ccolor:red%7C' +
+                                  item.location.lat +
+                                  ', ' +
+                                  item.location.lng +
+                                  '&key=AIzaSyD53u8vNTAPrceyNm7e0FSvwHmc5YJ4XB8'
+                                }
+                                alt={'Google map'}
+                                width="600"
+                                height="400"
+                              />
+                            </a>
                             <h5>{item.companyName}</h5>
                             <p className="mb20">
                               <PortableText content={item._rawCompanyInfo} />

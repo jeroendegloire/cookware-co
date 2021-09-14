@@ -1,17 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-modal-routing-3'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
-import logoSlogan from '../images/logo--slogan.svg'
 import backIcon from '../images/back-icon.svg'
 
 import Layout from '../components/layout'
 import Seo from '../components/Seo'
-import PortableText from '../utils/portableText'
 
 const PagesWrapper = styled.div`
   background: #d6d6cd;
@@ -167,65 +163,22 @@ const PagesWrapper = styled.div`
   }
 `
 
-const ItemWrap = styled.a`
-  :before {
-    background-image: url(${props => props.back});
-  }
-`
-
-const pageTemplate = ({ data }) => {
-  const { title, image, _rawContent, ctaArray } = data.sanityPage
-
+const cookiePage = ({ data }) => {
   return (
     <Layout>
-      <Seo title={title} />
+      <Seo title="Cookie declaration" />
 
       <PagesWrapper>
-        {image ? (
-          <div className="hero">
-            <GatsbyImage image={image?.asset?.gatsbyImageData} />
-
-            <img className="logo" src={logoSlogan} alt={title} />
-          </div>
-        ) : null}
-
         <div className="container page-vacancies">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-9 ">
-              <h1 class="mb-8">{title}</h1>
-              <PortableText content={_rawContent} />
-
-              <div className="city-name-wrep">
-                <div className="city-name-inner">
-                  {ctaArray
-                    ? ctaArray.links.map(item => (
-                        <div className="city-name">
-                          <ItemWrap
-                            back={item.icon.asset.url}
-                            className="dark-perot item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={item.link}
-                          >
-                            {item.prefix ? (
-                              <span>
-                                {item.prefix}
-                                <br />
-                              </span>
-                            ) : null}
-                            {item.text}
-                            {item.suffix ? (
-                              <span>
-                                <br />
-                                {item.suffix}
-                              </span>
-                            ) : null}
-                          </ItemWrap>
-                        </div>
-                      ))
-                    : null}
-                </div>
-              </div>
+              <h1 class="mb-8">Cookie declaration</h1>
+              <script
+                id="CookieDeclaration"
+                src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
+                type="text/javascript"
+                async
+              ></script>
             </div>
           </div>
 
@@ -244,31 +197,4 @@ const pageTemplate = ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    sanityPage(slug: { current: { eq: $slug } }) {
-      title
-      ctaArray {
-        links {
-          prefix
-          suffix
-          text
-          link
-          icon {
-            asset {
-              url
-            }
-          }
-        }
-      }
-      image {
-        asset {
-          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
-        }
-      }
-      _rawContent(resolveReferences: { maxDepth: 10 })
-    }
-  }
-`
-
-export default pageTemplate
+export default cookiePage

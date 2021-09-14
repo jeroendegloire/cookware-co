@@ -12,7 +12,7 @@ const StickyTop = styled.div`
   z-index: 7;
 
   .navbar-brand img {
-    width: 90px;
+    height: 45px;
   }
 
   .navbar {

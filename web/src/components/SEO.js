@@ -3,20 +3,24 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title, image }) {
+function Seo({ description, lang, meta, keywords, title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
         const metaDescription =
-          description || data.site.siteMetadata.description
+          description || data.sanitySiteSettings.metaDescription
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            title={
+              title
+                ? `${title} | ${data.sanitySiteSettings.sitename}`
+                : data.sanitySiteSettings.sitename
+            }
+            image={data.sanitySiteSettings.socialImage.asset.url}
             meta={[
               {
                 name: `description`,
@@ -44,7 +48,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: data.sanitySiteSettings.sitename,
               },
               {
                 name: `twitter:title`,
@@ -79,29 +83,30 @@ function SEO({ description, lang, meta, keywords, title, image }) {
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
-export default SEO
+export default Seo
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
+    sanitySiteSettings {
+      sitename
+      metaDescription
+      socialImage {
+        asset {
+          url
+        }
       }
     }
   }

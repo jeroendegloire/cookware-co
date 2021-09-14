@@ -364,7 +364,7 @@ article {
 
 	.logo-wrapper img {
 		width: 300px;
-		max-width: 100%;
+		max-width: 50%;
 		width: auto;
 		height: auto;
 		margin-bottom: 3rem;
@@ -632,7 +632,7 @@ iframe {
 .city-name button {
 	display: inline-block;
 	line-height: 50px;
-	width: 140px;
+	min-width: 140px;
 	text-align: center;
 	color: #fff;
 	font-size: 10px;
@@ -668,6 +668,7 @@ iframe {
 .ReactModal__Content {
 	overflow-x: hidden !important;
 	inset: 0 !important;
+	background: #d6d6cd !important;
 
 	@media screen and (min-width: 768px) {
 		inset: 40px !important;

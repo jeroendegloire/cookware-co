@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import linkedin from '../images/linkedin.svg'
+import { Link } from 'gatsby-plugin-modal-routing-3'
 
 const Footer = styled.footer`
   display: flex;
@@ -23,9 +24,10 @@ const Footer = styled.footer`
 
     a {
       color: #fff;
+      text-decoration: underline;
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
@@ -58,7 +60,10 @@ const FooterCom = () => {
             <img alt="linkedln" src={linkedin} className="linkedin" />
           </a>
           <br />© {new Date().getFullYear()} Cookware Company All Rights
-          Reserved.
+          Reserved.{' '}
+          <Link to="/cookie" asModal>
+            Cookie settings
+          </Link>
         </p>
       </div>
     </Footer>
