@@ -1,9 +1,8 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
-import { Link } from 'gatsby-plugin-modal-routing-3'
 import { Parallax } from 'react-scroll-parallax'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import factories from '../../images/factories.svg'
 import forkknife from '../../images/fork-knife.svg'
@@ -70,9 +69,8 @@ const FactoriesCom = () => {
                               {world.regionItems.map(item => (
                                 <Li back={item.icon.asset.url}>
                                   <Link
-                                    aria-label="factory"
+                                    aria-label="Go to factory"
                                     to={item.reference.slug.current}
-                                    asModal
                                   >
                                     <button className="light-gray city-fac">
                                       Visit <br />

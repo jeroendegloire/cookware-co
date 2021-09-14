@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'gatsby-plugin-modal-routing-3'
+import React, { useState, useEffect } from 'react'
+import { navigate, PageRenderer, Link } from 'gatsby'
+import Modal from 'react-modal'
 import styled from 'styled-components'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
@@ -163,46 +164,74 @@ const PagesWrapper = styled.div`
   }
 `
 
-const cookiePage = ({ data }) => {
+Modal.setAppElement(`#___gatsby`)
+
+const CookiePage = ({ data }) => {
+  // PageRenderer stuff.
+  const building = typeof window === 'undefined'
+  const [indexPageData, setIndexPageData] = useState(
+    !building && window.indexPageData
+  )
+  useEffect(() => {
+    window.setIndexPageData = () => {
+      setIndexPageData(window.indexPageData)
+    }
+  }, [])
+
+  // Modal stuff.
+  const [modalOpen, setModalOpen] = useState(true)
+  const modalCloseTimeout = 300
+  const closeModal = () => {
+    setModalOpen(false)
+    setTimeout(() => navigate(`/`), modalCloseTimeout)
+  }
+
   return (
-    <Layout>
-      <script
-        id="Cookiebot"
-        src="https://consent.cookiebot.com/uc.js"
-        data-cbid="334f8b27-09da-428a-bfbd-d628360aaa86"
-        data-blockingmode="auto"
-        type="text/javascript"
-        async
-      ></script>
-      <Seo title="Cookie declaration" />
+    <div>
+      <PageRenderer
+        key={'/'}
+        location={{ pathname: '/' }}
+        pageResources={indexPageData}
+        path="/"
+      />
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Modal" // TODO
+        closeTimeoutMS={modalCloseTimeout}
+      >
+        <Layout>
+          <Seo title="Cookie declaration" />
 
-      <PagesWrapper>
-        <div className="container page-vacancies">
-          <div className="row justify-content-center">
-            <div className="col-md-10 col-lg-9 ">
-              <h1 class="mb-8">Cookie declaration</h1>
-              <script
-                id="CookieDeclaration"
-                src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
-                type="text/javascript"
-                async
-              ></script>
+          <PagesWrapper>
+            <div className="container page-vacancies">
+              <div className="row justify-content-center">
+                <div className="col-md-10 col-lg-9 ">
+                  <h1 class="mb-8">Cookie declaration</h1>
+                  <script
+                    id="CookieDeclaration"
+                    src="https://consent.cookiebot.com/334f8b27-09da-428a-bfbd-d628360aaa86/cd.js"
+                    type="text/javascript"
+                    async
+                  ></script>
+                </div>
+              </div>
+
+              <Link
+                className="button-back"
+                to="/"
+                state={{
+                  noScroll: true,
+                }}
+              >
+                <img src={backIcon} className="back-icon" alt="" />
+              </Link>
             </div>
-          </div>
-
-          <Link
-            className="button-back"
-            to="/"
-            state={{
-              noScroll: true,
-            }}
-          >
-            <img src={backIcon} className="back-icon" alt="" />
-          </Link>
-        </div>
-      </PagesWrapper>
-    </Layout>
+          </PagesWrapper>
+        </Layout>
+      </Modal>
+    </div>
   )
 }
 
-export default cookiePage
+export default CookiePage

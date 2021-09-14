@@ -1,8 +1,8 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Link } from 'gatsby-plugin-modal-routing-3'
+import React, { useState, useEffect } from 'react'
+import { graphql, navigate, PageRenderer, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
+import Modal from 'react-modal'
 
 import '../../node_modules/bootstrap-scss/bootstrap-grid.scss'
 
@@ -173,74 +173,112 @@ const ItemWrap = styled.a`
   }
 `
 
-const pageTemplate = ({ data }) => {
+Modal.setAppElement(`#___gatsby`)
+
+const PageTemplate = ({ data }) => {
   const { title, image, _rawContent, ctaArray } = data.sanityPage
 
+  // PageRenderer stuff.
+  const building = typeof window === 'undefined'
+  const [indexPageData, setIndexPageData] = useState(
+    !building && window.indexPageData
+  )
+  useEffect(() => {
+    window.setIndexPageData = () => {
+      setIndexPageData(window.indexPageData)
+    }
+  }, [])
+
+  // Modal stuff.
+  const [modalOpen, setModalOpen] = useState(true)
+  const modalCloseTimeout = 300
+  const closeModal = () => {
+    setModalOpen(false)
+    setTimeout(() => navigate(`/`), modalCloseTimeout)
+  }
+
   return (
-    <Layout>
-      <Seo title={title} />
+    <div>
+      <PageRenderer
+        key={'/'}
+        location={{ pathname: '/' }}
+        pageResources={indexPageData}
+        path="/"
+      />
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Modal" // TODO
+        closeTimeoutMS={modalCloseTimeout}
+      >
+        <Layout>
+          <Seo title={title} />
 
-      <PagesWrapper>
-        {image ? (
-          <div className="hero">
-            <GatsbyImage image={image?.asset?.gatsbyImageData} />
+          <PagesWrapper>
+            {image ? (
+              <div className="hero">
+                <GatsbyImage image={image?.asset?.gatsbyImageData} />
 
-            <img className="logo" src={logoSlogan} alt={title} />
-          </div>
-        ) : null}
+                <img className="logo" src={logoSlogan} alt={title} />
+              </div>
+            ) : null}
 
-        <div className="container page-vacancies">
-          <div className="row justify-content-center">
-            <div className="col-md-10 col-lg-9 ">
-              <h1 class="mb-8">{title}</h1>
-              <PortableText content={_rawContent} />
+            <div className="container page-vacancies">
+              <div className="row justify-content-center">
+                <div className="col-md-10 col-lg-9 ">
+                  <h1 class="mb-8">{title}</h1>
+                  <PortableText content={_rawContent} />
 
-              <div className="city-name-wrep">
-                <div className="city-name-inner">
-                  {ctaArray
-                    ? ctaArray.links.map(item => (
-                        <div className="city-name">
-                          <ItemWrap
-                            back={item.icon.asset.url}
-                            className="dark-perot item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={item.link}
-                          >
-                            {item.prefix ? (
-                              <span>
-                                {item.prefix}
-                                <br />
-                              </span>
-                            ) : null}
-                            {item.text}
-                            {item.suffix ? (
-                              <span>
-                                <br />
-                                {item.suffix}
-                              </span>
-                            ) : null}
-                          </ItemWrap>
-                        </div>
-                      ))
-                    : null}
+                  <div className="city-name-wrep">
+                    <div className="city-name-inner">
+                      {ctaArray
+                        ? ctaArray.links.map(item => (
+                            <div className="city-name">
+                              <ItemWrap
+                                back={item.icon.asset.url}
+                                className="dark-perot item"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={item.link}
+                              >
+                                {item.prefix ? (
+                                  <span>
+                                    {item.prefix}
+                                    <br />
+                                  </span>
+                                ) : null}
+                                {item.text}
+                                {item.suffix ? (
+                                  <span>
+                                    <br />
+                                    {item.suffix}
+                                  </span>
+                                ) : null}
+                              </ItemWrap>
+                            </div>
+                          ))
+                        : null}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <Link
-            className="button-back"
-            to="/"
-            state={{
-              noScroll: true,
-            }}
-          >
-            <img src={backIcon} className="back-icon" alt="" />
-          </Link>
-        </div>
-      </PagesWrapper>
-    </Layout>
+              <Link
+                className="button-back"
+                aria-label="Close modal"
+                onClick={e => {
+                  e.preventDefault()
+                  closeModal()
+                }}
+                to="/"
+              >
+                <img src={backIcon} className="back-icon" alt="" />
+              </Link>
+            </div>
+          </PagesWrapper>
+        </Layout>
+      </Modal>
+    </div>
   )
 }
 
@@ -271,4 +309,4 @@ export const query = graphql`
   }
 `
 
-export default pageTemplate
+export default PageTemplate

@@ -1,6 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { Link } from 'gatsby-plugin-modal-routing-3'
+import { graphql, Link } from 'gatsby'
 
 import styled from 'styled-components'
 import { GatsbyImage } from 'gatsby-plugin-image'

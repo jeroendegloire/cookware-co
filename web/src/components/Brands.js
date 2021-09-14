@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import { Parallax } from 'react-scroll-parallax'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { Link } from 'gatsby-plugin-modal-routing-3'
 import Fade from 'react-reveal/Fade'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import wok from '../images/wok.svg'
 import wok2 from '../images/wok-2.svg'
@@ -123,9 +122,8 @@ const BrandsCom = () => {
                       <div className="col-lg-4 col-sm-6">
                         <Fade>
                           <Link
-                            aria-label="brands"
+                            aria-label="Go to brand"
                             to={item.reference.slug.current}
-                            asModal
                           >
                             <GatsbyImage
                               image={item.image.asset.gatsbyImageData}

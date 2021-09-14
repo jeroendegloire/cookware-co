@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { Link } from 'gatsby-plugin-modal-routing-3'
+import { Link } from 'gatsby'
 
 import toggle from '../images/menu.svg'
 
@@ -38,9 +38,7 @@ class Navigation extends React.Component {
               </li>
             ) : (
               <li className="nav-item">
-                <Link to={item.url} asModal>
-                  {item.title}
-                </Link>
+                <Link to={item.url}>{item.title}</Link>
               </li>
             )
           )}

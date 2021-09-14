@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import linkedin from '../images/linkedin.svg'
-import { Link } from 'gatsby-plugin-modal-routing-3'
 
 const Footer = styled.footer`
   display: flex;
@@ -60,10 +59,7 @@ const FooterCom = () => {
             <img alt="linkedln" src={linkedin} className="linkedin" />
           </a>
           <br />© {new Date().getFullYear()} Cookware Company All Rights
-          Reserved.{' '}
-          <Link to="/cookie" asModal>
-            Cookie settings
-          </Link>
+          Reserved. <Link to="/cookie">Cookie settings</Link>
         </p>
       </div>
     </Footer>

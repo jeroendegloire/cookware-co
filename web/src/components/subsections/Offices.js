@@ -1,8 +1,7 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
-import { Link } from 'gatsby-plugin-modal-routing-3'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import offices from '../../images/offices.svg'
 
@@ -66,9 +65,8 @@ const OfficesComponents = () => {
                               {world.regionItems.map(item => (
                                 <Li back={item.icon.asset.url}>
                                   <Link
-                                    aria-label="offices"
+                                    aria-label="Go to office"
                                     to={item.reference.slug.current}
-                                    asModal
                                   >
                                     <button className="dark-perot city">
                                       Visit
